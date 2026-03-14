@@ -1,0 +1,92 @@
+@import url(https://fonts.bunny.net/css?family=crimson-pro:400|inter:400,400i,600,600i|prata:400);
+
+:root {
+  --primary: #143221;
+
+  --font-headings:
+    "Prata", "Iowan Old Style", "Palatino Linotype", "URW Palladio L", P052,
+    serif;
+  --font-body:
+    Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
+    sans-serif;
+}
+
+html,
+body {
+  font-family: var(--font-body);
+  font-weight: normal;
+  position: relative;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-headings);
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 64px;
+}
+h2 {
+  font-size: 36px;
+}
+h3 {
+  font-size: 24px;
+}
+
+.container {
+  padding: 0 90px;
+  margin: 0 auto;
+  max-width: 1300px;
+}
+
+.page-title {
+  min-height: 300px;
+  padding-top: 100px;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+}
+.page-title .container {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}
+
+.page-divider {
+  background-color: var(--primary);
+  height: 25px;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+header::before {
+  display: block;
+  content: "";
+  background-color: var(--primary);
+  height: 10px;
+  margin-bottom: -10px;
+}
+header .logo-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Crimson Pro", serif;
+  font-size: 24px;
+  line-height: 21px;
+  color: var(--primary);
+  max-width: 377px;
+  padding: 15px 40px;
+  background-color: white;
+  margin-left: -40px;
+}
+header .logo-group img {
+  width: 48px;
+}

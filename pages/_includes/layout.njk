@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {{ title }} - Escola Portuguesa Nossa Senhora de Fátima - Vancouver, BC
+    </title>
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+  </head>
+  <body>
+    <!-- global header -->
+    {% include "header.njk" %}
+
+    <!-- page title -->
+    {% if not hideTitle %}
+    <section class="page-title">
+      <div class="container">
+        <h1>{{ title }}</h1>
+      </div>
+    </section>
+    <div class="page-divider" />
+    {% endif %}
+
+    <main>{{ content | safe }}</main>
+
+    {% include "footer.njk" %}
+  </body>
+</html>
