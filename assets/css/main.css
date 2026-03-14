@@ -2,6 +2,10 @@
 
 :root {
   --primary: #143221;
+  --white: #ffffff;
+  --gray-400: #4a5565;
+  --gray-500: #99a1af;
+  --black: #020202;
 
   --font-headings:
     "Prata", "Iowan Old Style", "Palatino Linotype", "URW Palladio L", P052,
@@ -9,38 +13,61 @@
   --font-body:
     Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
     sans-serif;
+  --font-logo: "Crimson Pro", serif;
+
+  --container-padding: 90px;
+  --max-width: 1332px;
+  --border-radius: 15px;
 }
 
 html,
 body {
   font-family: var(--font-body);
-  font-weight: normal;
+  font-weight: 400;
   position: relative;
+  color: var(--black);
 }
 
 h1,
 h2,
 h3 {
   font-family: var(--font-headings);
-  font-weight: normal;
+  font-weight: 400;
 }
 
 h1 {
   font-size: 64px;
+  line-height: 0.98;
 }
+
 h2 {
   font-size: 36px;
+  line-height: 1.11;
 }
+
 h3 {
   font-size: 24px;
 }
 
-.container {
-  padding: 0 90px;
-  margin: 0 auto;
-  max-width: 1300px;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container {
+  padding: 0 var(--container-padding);
+  margin: 0 auto;
+  max-width: 1512px;
+}
+
+/* Page Title (for other pages) */
 .page-title {
   min-height: 300px;
   padding-top: 100px;
@@ -48,6 +75,7 @@ h3 {
   color: white;
   display: flex;
 }
+
 .page-title .container {
   flex: 1;
   display: flex;
@@ -59,12 +87,13 @@ h3 {
   height: 25px;
 }
 
+/* Header */
 header {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 10;
 }
 
 header::before {
@@ -74,19 +103,649 @@ header::before {
   height: 10px;
   margin-bottom: -10px;
 }
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 header .logo-group {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: "Crimson Pro", serif;
+  font-family: var(--font-logo);
   font-size: 24px;
   line-height: 21px;
   color: var(--primary);
   max-width: 377px;
-  padding: 15px 40px;
+  padding: 15px 40px 15px 40px;
   background-color: white;
   margin-left: -40px;
 }
+
 header .logo-group img {
   width: 48px;
+  height: auto;
+}
+
+header nav {
+  margin-right: 50px;
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  list-style: none;
+  padding: 10px;
+  background: rgba(20, 50, 33, 0.25);
+  backdrop-filter: blur(4px);
+  border-radius: var(--border-radius);
+}
+
+header nav a {
+  font-family: var(--font-logo);
+  font-size: 20px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: var(--white);
+  transition: background-color 0.2s;
+}
+
+header nav a:hover {
+  background-color: rgba(20, 50, 33, 0.5);
+}
+
+header nav .nav-register a {
+  background-color: var(--primary);
+}
+
+body.home .nav-home,
+body.home .nav-register {
+  display: none;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-block;
+  padding: 29px 87px;
+  background:
+    radial-gradient(
+      circle at 50% 96%,
+      rgba(0, 255, 95, 1) 0%,
+      rgba(0, 166, 62, 0) 100%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(72, 214, 67, 1) 1%,
+      rgba(66, 175, 96, 1) 58%,
+      rgba(49, 187, 104, 1) 100%
+    );
+  border: 1px solid rgba(255, 255, 255, 0.57);
+  border-radius: var(--border-radius);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 0.83;
+  letter-spacing: -0.006em;
+  color: var(--white);
+  text-align: center;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 166, 62, 0.3);
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 15px 70px;
+  background: transparent;
+  border: 1px solid var(--primary);
+  border-radius: var(--border-radius);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.009em;
+  color: var(--primary);
+  text-align: center;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+  max-width: 350px;
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+/* Hero Section */
+.home-hero {
+  position: relative;
+  min-height: 930px;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 100px;
+  overflow: hidden;
+}
+
+.home-hero-bg {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 920px;
+  z-index: 0;
+}
+
+.home-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-hero-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 53%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.home-hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0 var(--container-padding);
+  max-width: 1512px;
+  margin: 0 auto;
+}
+
+.home-hero h1 {
+  color: var(--white);
+  max-width: 575px;
+  margin-bottom: 30px;
+}
+
+.home-hero-lead {
+  color: var(--white);
+  font-size: 20px;
+  line-height: 1.4;
+  max-width: 559px;
+  margin-bottom: 24px;
+}
+
+.home-hero-badge {
+  display: inline-block;
+  background-color: var(--primary);
+  border-radius: 9999px;
+  padding: 8.5px 16px;
+  margin-bottom: 60px;
+}
+
+.home-hero-badge span {
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: -0.011em;
+  color: #fefefe;
+}
+
+.home-hero-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-left: auto;
+  width: fit-content;
+}
+
+.home-hero-cta-tag {
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: -0.011em;
+  color: var(--primary);
+  background-color: var(--white);
+  padding: 10px 20px;
+  border-radius: 0 0 15px 15px;
+  margin-top: -10px;
+  z-index: -1;
+}
+
+/* Our School Section */
+.home-school {
+  padding: 110px 0;
+}
+
+.home-school-grid {
+  display: grid;
+  grid-template-columns: 629px 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.home-school-image {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow:
+    0px 8px 10px -6px rgba(0, 0, 0, 0.1),
+    0px 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.home-school-image img {
+  width: 629px;
+  height: 443px;
+}
+
+.home-school-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.home-school-content h2 {
+  color: var(--primary);
+}
+
+.home-school-content .lead {
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.05em;
+  color: var(--gray-400);
+}
+
+.home-school-content p:not(.lead) {
+  font-size: 16px;
+  line-height: 1.625;
+  letter-spacing: -0.02em;
+  color: var(--black);
+}
+
+/* Curriculum Section */
+.home-curriculum {
+  background-color: var(--primary);
+  padding: 91px 0 100px;
+}
+
+.home-curriculum h2 {
+  color: var(--white);
+  margin-bottom: 14px;
+}
+
+.home-curriculum-intro {
+  color: var(--white);
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.022em;
+  max-width: 1293px;
+  margin-bottom: 33px;
+}
+
+.home-curriculum-pills {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.022em;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.pill:hover {
+  transform: translateY(-3px);
+}
+
+.pill-1 {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #fef2f2;
+}
+
+.pill-2 {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: var(--primary);
+}
+
+.pill-3 {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: var(--primary);
+}
+
+.pill-4 {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: var(--primary);
+}
+
+.pill-5 {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: var(--primary);
+}
+
+.pill-6 {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--primary);
+}
+
+/* Our Teachers Section */
+.home-teachers {
+  padding: 80px 0;
+}
+
+.home-teachers-grid {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 60px;
+  align-items: center;
+}
+
+.home-teachers-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.home-teachers-content h2 {
+  color: var(--primary);
+}
+
+.home-teachers-content p {
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.022em;
+  color: var(--primary);
+}
+
+.home-teachers-image {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow:
+    0px 8px 10px -6px rgba(0, 0, 0, 0.1),
+    0px 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.home-teachers-image img {
+  height: 465px;
+}
+
+/* CTA Section */
+.home-cta {
+  position: relative;
+  min-height: 528px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.home-cta-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.home-cta-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-cta-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.home-cta-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 807px;
+  padding: 0 var(--container-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.home-cta-content h2 {
+  color: var(--white);
+}
+
+.home-cta-content p {
+  color: var(--white);
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.022em;
+}
+
+/* Footer */
+footer {
+  background-color: var(--white);
+  padding: 48px var(--container-padding) 0;
+  color: var(--gray-400);
+}
+
+.footer-main {
+  display: flex;
+  gap: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 592px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 40px 15px 0;
+}
+
+.footer-logo img {
+  width: 48px;
+  height: 67px;
+}
+
+.footer-logo span {
+  font-family: var(--font-logo);
+  font-size: 24px;
+  line-height: 0.875;
+  text-transform: uppercase;
+  color: var(--primary);
+  max-width: 239px;
+}
+
+.footer-brand p {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  max-width: 579px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 80px;
+  margin-left: auto;
+}
+
+.footer-links-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-links-column h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: -0.024em;
+  color: var(--white);
+}
+
+.footer-links-column ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-links-column a {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--gray-400);
+  transition: color 0.2s;
+}
+
+.footer-links-column a:hover {
+  color: var(--primary);
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.footer-contact-item svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.footer-contact-item span {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--gray-400);
+}
+
+.footer-bottom {
+  padding: 33px 0;
+  text-align: center;
+  border-top: 1px solid rgba(20, 50, 33, 0.1);
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: -0.011em;
+  color: var(--gray-400);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  :root {
+    --container-padding: 60px;
+  }
+
+  .home-school-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-school-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .home-teachers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-curriculum-pills {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-links {
+    gap: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 24px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .home-hero {
+    min-height: 700px;
+    padding-bottom: 60px;
+  }
+
+  .home-hero-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-primary {
+    padding: 20px 40px;
+    font-size: 18px;
+  }
+
+  .home-curriculum-pills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-main {
+    flex-direction: column;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 32px;
+    margin-left: 0;
+  }
+
+  header nav {
+    display: none;
+  }
 }
