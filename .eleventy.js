@@ -1,5 +1,5 @@
 export default function (eleventyConfig) {
-  // eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("assets");
   return {
     dir: {
       input: "pages",
