@@ -1,0 +1,355 @@
+/* Hero Section */
+.home-hero {
+  position: relative;
+  min-height: 930px;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 100px;
+  overflow: hidden;
+}
+
+.home-hero-bg {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 920px;
+  z-index: 0;
+}
+
+.home-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-hero-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 53%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.home-hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0 var(--container-padding);
+  max-width: 1512px;
+  margin: 0 auto;
+}
+
+.home-hero h1 {
+  color: var(--white);
+  max-width: 575px;
+  margin-bottom: 30px;
+}
+
+.home-hero-lead {
+  color: var(--white);
+  font-size: 20px;
+  line-height: 1.4;
+  max-width: 559px;
+  margin-bottom: 24px;
+}
+
+.home-hero-badge {
+  display: inline-block;
+  background-color: var(--primary);
+  border-radius: 9999px;
+  padding: 8.5px 16px;
+  margin-bottom: 60px;
+}
+
+.home-hero-badge span {
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: -0.011em;
+  color: #fefefe;
+}
+
+.home-hero-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-left: auto;
+  width: fit-content;
+}
+
+.home-hero-cta-tag {
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: -0.011em;
+  color: var(--primary);
+  background-color: var(--white);
+  padding: 10px 20px;
+  border-radius: 0 0 15px 15px;
+  margin-top: -10px;
+  z-index: -1;
+}
+
+/* Our School Section */
+.home-school {
+  padding: 110px 0;
+}
+
+.home-school-grid {
+  display: grid;
+  grid-template-columns: 629px 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.home-school-image {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow:
+    0px 8px 10px -6px rgba(0, 0, 0, 0.1),
+    0px 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.home-school-image img {
+  width: 629px;
+  height: 443px;
+}
+
+.home-school-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.home-school-content h2 {
+  color: var(--primary);
+}
+
+.home-school-content .lead {
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.05em;
+  color: var(--gray-400);
+}
+
+.home-school-content p:not(.lead) {
+  font-size: 16px;
+  line-height: 1.625;
+  letter-spacing: -0.02em;
+  color: var(--black);
+}
+
+/* Curriculum Section */
+.home-curriculum {
+  background-color: var(--primary);
+  padding: 91px 0 100px;
+}
+
+.home-curriculum h2 {
+  color: var(--white);
+  margin-bottom: 14px;
+}
+
+.home-curriculum-intro {
+  color: var(--white);
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.022em;
+  max-width: 1293px;
+  margin-bottom: 33px;
+}
+
+.home-curriculum-pills {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.022em;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.pill:hover {
+  transform: translateY(-3px);
+}
+
+.pill-1 {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #fef2f2;
+}
+
+.pill-2 {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: var(--primary);
+}
+
+.pill-3 {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: var(--primary);
+}
+
+.pill-4 {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: var(--primary);
+}
+
+.pill-5 {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: var(--primary);
+}
+
+.pill-6 {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--primary);
+}
+
+/* Our Teachers Section */
+.home-teachers {
+  padding: 80px 0;
+}
+
+.home-teachers-grid {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 60px;
+  align-items: center;
+}
+
+.home-teachers-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.home-teachers-content h2 {
+  color: var(--primary);
+}
+
+.home-teachers-content p {
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.022em;
+  color: var(--primary);
+}
+
+.home-teachers-image {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow:
+    0px 8px 10px -6px rgba(0, 0, 0, 0.1),
+    0px 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.home-teachers-image img {
+  height: 465px;
+}
+
+/* CTA Section */
+.home-cta {
+  position: relative;
+  min-height: 528px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.home-cta-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.home-cta-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-cta-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.home-cta-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 807px;
+  padding: 0 var(--container-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.home-cta-content h2 {
+  color: var(--white);
+}
+
+.home-cta-content p {
+  color: var(--white);
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.022em;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .home-school-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-school-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .home-teachers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-curriculum-pills {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .home-hero {
+    min-height: 700px;
+    padding-bottom: 60px;
+  }
+
+  .home-hero-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .home-curriculum-pills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

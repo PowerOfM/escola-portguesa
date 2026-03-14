@@ -1,0 +1,234 @@
+/* Page Hero (reusable for any page with a hero banner) */
+.page-hero {
+  position: relative;
+  min-height: 326px;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 48px;
+  overflow: hidden;
+}
+
+.page-hero-bg {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 316px;
+  z-index: 0;
+}
+
+.page-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-hero-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 53%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0 var(--container-padding);
+  max-width: 1512px;
+  margin: 0 auto;
+}
+
+.page-hero h1 {
+  color: var(--white);
+  max-width: 575px;
+}
+
+/* Two-column intro section (image + text) */
+.two-column {
+  padding: 110px 0;
+}
+
+.two-column-grid {
+  display: grid;
+  grid-template-columns: 531px 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.two-column-image {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow:
+    0px 8px 10px -6px rgba(0, 0, 0, 0.1),
+    0px 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.two-column-image img {
+  width: 100%;
+  height: auto;
+  max-height: 468px;
+  object-fit: cover;
+}
+
+.two-column-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.two-column-content p {
+  font-size: 16px;
+  line-height: 1.625;
+  letter-spacing: -0.02em;
+  color: var(--gray-400);
+}
+
+/* Teachers section */
+.about-teachers {
+  padding: 80px 0 60px;
+}
+
+.about-teachers h2 {
+  color: var(--primary);
+  margin-bottom: 43px;
+}
+
+.about-teachers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 43px;
+}
+
+/* Teacher card */
+.teacher-card {
+  display: grid;
+  grid-template-columns: 1fr 346px;
+  gap: 27px;
+  align-items: start;
+}
+
+.teacher-card--reversed {
+  grid-template-columns: 346px 1fr;
+}
+
+.teacher-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.teacher-card-text h3 {
+  color: var(--primary);
+}
+
+.teacher-card-text p {
+  font-size: 16px;
+  line-height: 1.625;
+  letter-spacing: -0.02em;
+  color: #111111;
+}
+
+.teacher-card-image {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.teacher-card-image img {
+  width: 346px;
+  height: 471px;
+  object-fit: cover;
+}
+
+.teacher-card-image-placeholder {
+  width: 346px;
+  height: 471px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius);
+}
+
+/* Volunteers section */
+.about-volunteers {
+  padding: 100px 0;
+  background-color: rgba(20, 50, 33, 0.05);
+}
+
+.about-volunteers h2 {
+  color: var(--primary);
+  margin-bottom: 24px;
+}
+
+.about-volunteers p {
+  font-size: 16px;
+  line-height: 1.625;
+  letter-spacing: -0.02em;
+  color: var(--gray-400);
+  max-width: 900px;
+}
+
+.about-volunteers p + p {
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .two-column-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .two-column-image {
+    max-width: 531px;
+  }
+
+  .teacher-card,
+  .teacher-card--reversed {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-card-image img,
+  .teacher-card-image-placeholder {
+    width: 100%;
+    max-width: 346px;
+    height: auto;
+    aspect-ratio: 346 / 471;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-hero {
+    min-height: 250px;
+    padding-bottom: 30px;
+  }
+
+  .page-hero-bg {
+    height: 250px;
+  }
+
+  .two-column {
+    padding: 60px 0;
+  }
+
+  .about-teachers {
+    padding: 40px 0;
+  }
+
+  .about-teachers h2 {
+    margin-bottom: 24px;
+  }
+
+  .about-teachers-list {
+    gap: 32px;
+  }
+
+  .about-volunteers {
+    padding: 60px 0;
+  }
+}
