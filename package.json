@@ -7,7 +7,7 @@
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy",
-    "deploy": "wrangler pages deploy"
+    "deploy": "wrangler pages deploy build/"
   },
   "keywords": [],
   "author": "",
