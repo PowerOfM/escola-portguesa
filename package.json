@@ -7,7 +7,7 @@
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy",
-    "deploy": "wrangler deploy"
+    "deploy": "wrangler pages deploy build --project-name escola-portguesa"
   },
   "keywords": [],
   "author": "",
