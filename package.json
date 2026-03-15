@@ -5,12 +5,15 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "eleventy --serve"
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "deploy": "wrangler pages deploy"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@11ty/eleventy": "^3.1.2"
+    "@11ty/eleventy": "^3.1.2",
+    "wrangler": "^4.73.0"
   }
 }
