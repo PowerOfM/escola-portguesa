@@ -96,10 +96,15 @@
 }
 
 .curriculum-detail {
+  display: none;
   background-color: var(--white);
   border: 1px solid rgba(20, 50, 33, 0.1);
   border-radius: 16px;
   padding: 48px;
+}
+
+.curriculum-detail.is-visible {
+  display: block;
 }
 
 .curriculum-detail-header {
