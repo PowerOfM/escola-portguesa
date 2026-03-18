@@ -10,18 +10,14 @@ css: home
     <img src="/assets/images/hero-bg.png" alt="" />
   </div>
   <div class="home-hero-content">
-    <h1>Ola!<br />Vamos aprender portguês!</h1>
-    <p class="home-hero-lead">
-      Nurturing Portuguese language and culture in young minds. Quality
-      education for children from Kindergarten through Grade 12 in the heart of
-      Vancouver.
-    </p>
+    <h1>{{ home.hero.heading | safe }}</h1>
+    <p class="home-hero-lead">{{ home.hero.lead }}</p>
     <div class="home-hero-badge">
-      <span>Est. 1985 • Serving Vancouver for 40+ Years</span>
+      <span>{{ home.hero.badge }}</span>
     </div>
     <div class="home-hero-cta">
       <a href="/contact" class="btn-primary">REGISTER NOW</a>
-      <span class="home-hero-cta-tag">Enrolment open for September 2026</span>
+      <span class="home-hero-cta-tag">{{ home.hero.enrolmentTag }}</span>
     </div>
   </div>
 </section>
@@ -32,18 +28,9 @@ css: home
       <img src="/assets/images/our-school.png" alt="Our School" />
     </div>
     <div class="home-school-content">
-      <h2>Our School</h2>
-      <p class="lead">
-        Founded in 1985 by a group of passionate Portuguese immigrants, Escola
-        Portuguesa has been a cornerstone of cultural preservation in Vancouver's
-        Portuguese community.
-      </p>
-      <p>
-        For over four decades, we've been dedicated to providing high-quality
-        Portuguese language education to children in the Greater Vancouver area.
-        Our mission is to preserve and promote Portuguese language, culture, and
-        heritage while fostering a love for learning in a supportive environment.
-      </p>
+      <h2>{{ home.school.heading }}</h2>
+      <p class="lead">{{ home.school.lead }}</p>
+      <p>{{ home.school.body }}</p>
       <a href="/about" class="btn-outline">LEARN MORE</a>
     </div>
   </div>
@@ -51,18 +38,12 @@ css: home
 
 <section class="home-curriculum">
   <div class="container">
-    <h2>Our Curriculum</h2>
-    <p class="home-curriculum-intro">
-      A comprehensive Portuguese language program from Kindergarten through Grade
-      12, following international standards and adapted for Canadian students.
-    </p>
+    <h2>{{ home.curriculumSection.heading }}</h2>
+    <p class="home-curriculum-intro">{{ home.curriculumSection.intro }}</p>
     <div class="home-curriculum-pills">
-      <a href="/curriculum" class="pill pill-1">Pré-Escola</a>
-      <a href="/curriculum" class="pill pill-2">A1 Básico Inicial</a>
-      <a href="/curriculum" class="pill pill-3">A1 Básico Emergente</a>
-      <a href="/curriculum" class="pill pill-4">A1 Básico Aplicado</a>
-      <a href="/curriculum" class="pill pill-5">A1 Intermédio</a>
-      <a href="/curriculum" class="pill pill-6">A1 Avançado / A2</a>
+      {% for slug, level in curriculum %}
+        <a href="/curriculum" class="pill pill-{{ loop.index }}">{{ level.tab }}</a>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -70,12 +51,8 @@ css: home
 <section class="home-teachers">
   <div class="container home-teachers-grid">
     <div class="home-teachers-content">
-      <h2>Our Teachers</h2>
-      <p>
-        Our dedicated team of experienced educators is passionate about Portuguese
-        language and culture. Each teacher brings unique expertise and a
-        commitment to student success.
-      </p>
+      <h2>{{ home.teachersSection.heading }}</h2>
+      <p>{{ home.teachersSection.body }}</p>
       <a href="/about#our-teachers" class="btn-outline">MEET THE TEACHERS</a>
     </div>
     <div class="home-teachers-image">
@@ -89,11 +66,8 @@ css: home
     <img src="/assets/images/cta-bg.png" alt="" />
   </div>
   <div class="home-cta-content">
-    <h2>Ready to Begin Your Journey?</h2>
-    <p>
-      Join our vibrant community and give your child the gift of language and
-      culture. Enrollment is now open for the 2026-2027 school year!
-    </p>
+    <h2>{{ home.cta.heading }}</h2>
+    <p>{{ home.cta.body }}</p>
     <a href="/contact" class="btn-primary">REGISTER NOW</a>
   </div>
 </section>

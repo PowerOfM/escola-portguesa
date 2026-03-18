@@ -102,6 +102,10 @@
   padding: 48px;
 }
 
+.curriculum-detail--hidden {
+  display: none;
+}
+
 .curriculum-detail-header {
   display: flex;
   justify-content: space-between;

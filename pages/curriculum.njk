@@ -42,50 +42,46 @@ heroImage: /assets/images/curriculum-hero.png
 <section class="curriculum-levels">
   <div class="container">
     <div class="curriculum-tabs">
-      <button class="curriculum-tab curriculum-tab--active" data-tab="kindergarten">Kindergarten</button>
-      <button class="curriculum-tab" data-tab="grades-1-2">Grades 1-2</button>
-      <button class="curriculum-tab" data-tab="grades-3-5">Grades 3-5</button>
-      <button class="curriculum-tab" data-tab="grades-6-8">Grades 6-8</button>
-      <button class="curriculum-tab" data-tab="grades-9-12">Grades 9-12</button>
+      {% for slug, level in curriculum %}
+        <button class="curriculum-tab{% if loop.first %} curriculum-tab--active{% endif %}" data-tab="{{ slug }}">{{ level.tab }}</button>
+      {% endfor %}
     </div>
 
-    <div class="curriculum-detail">
-      <div class="curriculum-detail-header">
-        <div>
-          <h2>Kindergarten</h2>
-          <p class="curriculum-detail-age">Ages 5-6 years</p>
+    {% for slug, level in curriculum %}
+      <div class="curriculum-detail{% if not loop.first %} curriculum-detail--hidden{% endif %}" data-panel="{{ slug }}">
+        <div class="curriculum-detail-header">
+          <div>
+            <h2>{{ level.title }}</h2>
+            <p class="curriculum-detail-age">{{ level.ages }}</p>
+          </div>
+        </div>
+        <p class="curriculum-detail-intro">{{ level.intro }}</p>
+        <div class="curriculum-detail-columns">
+          <div class="curriculum-detail-column">
+            <h3>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Learning Objectives
+            </h3>
+            <ul class="curriculum-checklist">
+              {% for item in level.objectives %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="curriculum-detail-column">
+            <h3>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+              Topics Covered
+            </h3>
+            <ul class="curriculum-bullet-list">
+              {% for item in level.topics %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
       </div>
-      <p class="curriculum-detail-intro">Introduction to Portuguese through play, songs, and interactive activities.</p>
-      <div class="curriculum-detail-columns">
-        <div class="curriculum-detail-column">
-          <h3>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            Learning Objectives
-          </h3>
-          <ul class="curriculum-checklist">
-            <li>Basic vocabulary (colors, numbers, family members, animals)</li>
-            <li>Simple greetings and common phrases</li>
-            <li>Portuguese alphabet and phonetics</li>
-            <li>Cultural awareness through stories and songs</li>
-            <li>Fine motor skills through Portuguese letter writing</li>
-          </ul>
-        </div>
-        <div class="curriculum-detail-column">
-          <h3>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
-            Topics Covered
-          </h3>
-          <ul class="curriculum-bullet-list">
-            <li>Family and friends</li>
-            <li>Colors and shapes</li>
-            <li>Numbers 1-20</li>
-            <li>Portuguese animals and nature</li>
-            <li>Traditional Portuguese children's songs</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    {% endfor %}
   </div>
 </section>
 
@@ -104,11 +100,11 @@ heroImage: /assets/images/curriculum-hero.png
       <div class="curriculum-fees-payment">
         <p>Families may choose to pay tuition in one full payment or in two installments.</p>
         <h4>1. One Full Payment</h4>
-        <p><strong>E-transfer</strong> – due on November 30 to escolaportuguesavancouver@gmail.com</p>
+        <p><strong>E-transfer</strong> – due on November 30 to {{ site.email.payments }}</p>
         <p><strong>Cheque</strong> – due on November 30</p>
         <p><strong>Cash</strong> – due on November 30</p>
         <h4>2. Two Installments</h4>
-        <p><strong>E-transfer</strong> – 1st installment due November 30 / 2nd installment due January 31 to escolaportuguesavancouver@gmail.com</p>
+        <p><strong>E-transfer</strong> – 1st installment due November 30 / 2nd installment due January 31 to {{ site.email.payments }}</p>
         <p><strong>Post-dated cheques</strong> – 1st installment dated November 30 / 2nd installment dated January 31</p>
         <p><strong>Cash</strong> – 1st installment due November 30 / 2nd installment due January 31</p>
       </div>
@@ -121,11 +117,8 @@ heroImage: /assets/images/curriculum-hero.png
     <img src="/assets/images/cta-bg.png" alt="" />
   </div>
   <div class="home-cta-content">
-    <h2>Ready to Begin Your Journey?</h2>
-    <p>
-      Join our vibrant community and give your child the gift of language and
-      culture. Enrollment is now open for the 2026-2027 school year!
-    </p>
+    <h2>{{ home.cta.heading }}</h2>
+    <p>{{ home.cta.body }}</p>
     <a href="/contact" class="btn-primary">REGISTER NOW</a>
   </div>
 </section>

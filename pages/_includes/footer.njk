@@ -7,13 +7,9 @@
             src="/assets/images/logo-footer.png"
             alt="Escola Portuguesa Logo"
           />
-          <span>Escola Portguesa Nossa Senhora de Fátima</span>
+          <span>{{ site.name }}</span>
         </div>
-        <p>
-          Preserving Portuguese language and culture in Vancouver for over 40
-          years. We provide quality Portuguese education for children from
-          kindergarten through grade 12.
-        </p>
+        <p>{{ site.tagline }}</p>
       </div>
 
       <div class="footer-links">
@@ -46,8 +42,8 @@
                 <circle cx="12" cy="10" r="3" />
               </svg>
               <span>
-                123 Portuguese Way<br />
-                Vancouver, BC V6B 1A1
+                {{ site.address.street }}<br />
+                {{ site.address.city }}, {{ site.address.province }} {{ site.address.postal }}
               </span>
             </div>
             <div class="footer-contact-item">
@@ -65,7 +61,7 @@
                 <rect width="20" height="16" x="2" y="4" rx="2" />
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
               </svg>
-              <span>info@escolaportuguesayvr.ca</span>
+              <span>{{ site.email.general }}</span>
             </div>
           </div>
         </div>
@@ -73,7 +69,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 Escola Portuguesa Vancouver. All rights reserved.</p>
+      <p>&copy; 2026 {{ site.shortName }}. All rights reserved.</p>
     </div>
   </div>
 </footer>

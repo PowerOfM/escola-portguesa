@@ -15,7 +15,7 @@ heroImage: /assets/images/curriculum-hero.png
         </div>
         <div>
           <h3>Address</h3>
-          <p>123 Portuguese Way<br />Vancouver, BC V6B 1A1<br />Canada</p>
+          <p>{{ site.address.street }}<br />{{ site.address.city }}, {{ site.address.province }} {{ site.address.postal }}<br />{{ site.address.country }}</p>
         </div>
       </div>
 
@@ -26,10 +26,10 @@ heroImage: /assets/images/curriculum-hero.png
         <div>
           <h3>Email</h3>
           <p>
-            <strong>General:</strong> <a href="mailto:info@escolaportuguesayvr.ca">info@escolaportuguesayvr.ca</a><br />
-            <strong>Admissions:</strong> <a href="mailto:admissions@escolaportuguesayvr.ca">admissions@escolaportuguesayvr.ca</a><br />
-            <strong>Payments:</strong> <a href="mailto:payments@escolaportuguesayvr.ca">payments@escolaportuguesayvr.ca</a><br />
-            <strong>Students &amp; Parents:</strong> <a href="mailto:students@escolaportuguesayvr.ca">students@escolaportuguesayvr.ca</a>
+            <strong>General:</strong> <a href="mailto:{{ site.email.general }}">{{ site.email.general }}</a><br />
+            <strong>Admissions:</strong> <a href="mailto:{{ site.email.admissions }}">{{ site.email.admissions }}</a><br />
+            <strong>Payments:</strong> <a href="mailto:{{ site.email.payments }}">{{ site.email.payments }}</a><br />
+            <strong>Students &amp; Parents:</strong> <a href="mailto:{{ site.email.students }}">{{ site.email.students }}</a>
           </p>
         </div>
       </div>
@@ -41,8 +41,8 @@ heroImage: /assets/images/curriculum-hero.png
         <div>
           <h3>Office Hours</h3>
           <p>
-            <strong>Saturday:</strong> 8:30 AM &ndash; 2:00 PM<br />
-            <strong>Weekdays:</strong> By appointment<br />
+            <strong>Saturday:</strong> {{ site.officeHours.saturday }}<br />
+            <strong>Weekdays:</strong> {{ site.officeHours.weekdays }}<br />
             Call or email to schedule
           </p>
         </div>
@@ -98,7 +98,7 @@ heroImage: /assets/images/curriculum-hero.png
           <label for="grade-level" class="contact-form-label">Desired Grade Level *</label>
           <select id="grade-level" name="grade-level" required>
             <option value="" disabled selected>Select a grade level</option>
-            <option value="pre-k">Pr&eacute;-Escola (Ages 4-5)</option>
+            <option value="pre-k">Pré-Escola (Ages 4-5)</option>
             <option value="k">Kindergarten (Ages 5-6)</option>
             <option value="1-2">Grades 1-2</option>
             <option value="3-5">Grades 3-5</option>
