@@ -270,11 +270,6 @@
   text-align: center;
 }
 
-.fees-pricing-card--featured {
-  background-color: rgba(20, 50, 33, 0.05);
-  border-width: 2px;
-}
-
 .fees-pricing-label {
   font-size: 12px;
   font-weight: 600;
@@ -285,10 +280,10 @@
 
 .fees-pricing-amount {
   font-family: var(--font-headings);
-  font-size: 42px;
+  font-size: 32px;
   line-height: 1;
   color: var(--primary);
-  margin: 8px 0 2px;
+  margin: 16px 0 2px;
 }
 
 .fees-pricing-period {
