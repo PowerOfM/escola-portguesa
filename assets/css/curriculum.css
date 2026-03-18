@@ -252,41 +252,92 @@
   color: var(--primary);
 }
 
-.curriculum-fees-pricing {
-  list-style: none;
+/* Pricing cards */
+.fees-pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.fees-pricing-card {
+  border: 1px solid var(--primary);
+  border-radius: var(--border-radius);
+  padding: 24px 16px;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
 }
 
-.curriculum-fees-pricing li {
-  font-size: 20px;
-  line-height: 1.8;
-  letter-spacing: -0.02em;
-  color: #111111;
+.fees-pricing-card--featured {
+  background-color: rgba(20, 50, 33, 0.05);
+  border-width: 2px;
 }
 
+.fees-pricing-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray-400);
+}
+
+.fees-pricing-amount {
+  font-family: var(--font-headings);
+  font-size: 42px;
+  line-height: 1;
+  color: var(--primary);
+  margin: 8px 0 2px;
+}
+
+.fees-pricing-period {
+  font-size: 13px;
+  color: var(--gray-500);
+}
+
+/* Payment options */
 .curriculum-fees-payment {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
-.curriculum-fees-payment p {
+.curriculum-fees-payment > p {
   font-size: 16px;
   line-height: 1.63;
   letter-spacing: -0.02em;
   color: #111111;
+}
+
+.fees-payment-option {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .curriculum-fees-payment h4 {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 16px;
-  line-height: 1.63;
+  line-height: 1.5;
   letter-spacing: -0.02em;
   color: #111111;
-  margin-top: 8px;
+}
+
+.fees-payment-list {
+  list-style: disc;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fees-payment-list li {
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+  color: var(--gray-400);
 }
 
 /* CTA section (reused from home) */
