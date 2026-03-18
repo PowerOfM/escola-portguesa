@@ -1,16 +1,16 @@
 <header>
   <div class="container">
-    <div class="logo-group">
+    <a href="/" class="logo-group">
       <img src="/assets/logo-rooster.jpg" alt="Logo" />
       <span>ESCOLA PORTUGUESA<br />NOSSA SENHORA<br />DE F&Aacute;TIMA</span>
-    </div>
+    </a>
 
     <nav>
       <ul>
-        <li class="nav-about"><a href="/about/">About</a></li>
-        <li class="nav-curriculum"><a href="/curriculum/">Curriculum</a></li>
-        <li class="nav-calendar"><a href="/calendar/">Calendar</a></li>
-        <li class="nav-contact"><a href="/contact/">Contact</a></li>
+        <li class="nav-about{% if navPage == 'about' %} nav-active{% endif %}"><a href="/about/">About</a></li>
+        <li class="nav-curriculum{% if navPage == 'curriculum' %} nav-active{% endif %}"><a href="/curriculum/">Curriculum</a></li>
+        <li class="nav-calendar{% if navPage == 'calendar' %} nav-active{% endif %}"><a href="/calendar/">Calendar</a></li>
+        <li class="nav-contact{% if navPage == 'contact' %} nav-active{% endif %}"><a href="/contact/">Contact</a></li>
         <li class="nav-register"><a href="/contact/">Register</a></li>
       </ul>
     </nav>

@@ -10,28 +10,50 @@
 }
 
 .calendar-meta-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 24px;
-  background-color: var(--white);
+  border: 1px solid var(--primary);
   border-radius: var(--border-radius);
-  box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.1),
-    0px 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.calendar-meta-item svg {
-  flex-shrink: 0;
+.calendar-meta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
-.calendar-meta-item h3 {
+.calendar-meta-header h3 {
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 18px;
   line-height: 1.5;
   letter-spacing: -0.024em;
   color: #101828;
-  margin-bottom: 4px;
+}
+
+.calendar-meta-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.calendar-meta-icon--green {
+  background-color: #dcfce7;
+}
+
+.calendar-meta-icon--blue {
+  background-color: rgba(111, 174, 255, 0.27);
+}
+
+.calendar-meta-icon--yellow {
+  background-color: #fef9c2;
 }
 
 .calendar-meta-item p {

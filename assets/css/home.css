@@ -44,6 +44,16 @@
   padding: 0 var(--container-padding);
   max-width: 1512px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.home-hero-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .home-hero h1 {
@@ -65,7 +75,7 @@
   background-color: var(--primary);
   border-radius: 9999px;
   padding: 8.5px 16px;
-  margin-bottom: 60px;
+  margin-bottom: 0;
 }
 
 .home-hero-badge span {
@@ -80,8 +90,8 @@
   flex-direction: column;
   align-items: center;
   gap: 0;
-  margin-left: auto;
   width: fit-content;
+  flex-shrink: 0;
 }
 
 .home-hero-cta-tag {
@@ -342,6 +352,16 @@
   .home-hero {
     min-height: 700px;
     padding-bottom: 60px;
+  }
+
+  .home-hero-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .home-hero-badge {
+    margin-bottom: 0;
   }
 
   .home-hero-cta {
