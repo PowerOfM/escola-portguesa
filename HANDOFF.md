@@ -15,8 +15,13 @@ escola-portguesa/
 ├── .eleventy.js          # Eleventy config — input: "pages", output: "build"
 ├── assets/
 │   ├── css/
-│   │   ├── reset.css     # Modern CSS reset (Josh Comeau style)
-│   │   └── main.css      # All site styles
+│   │   ├── reset.css       # Modern CSS reset (Josh Comeau style)
+│   │   ├── main.css        # Global styles (design tokens, layout, header, footer, shared components)
+│   │   ├── home.css        # Styles for the home page (hero, school, curriculum, teachers sections)
+│   │   ├── curriculum.css  # Styles for the curriculum/fees page
+│   │   ├── about.css       # Styles for the about page
+│   │   ├── calendar.css    # Styles for the calendar page
+│   │   └── contact.css     # Styles for the contact page
 │   └── images/           # Downloaded from Figma (hero-bg.png, our-school.png, etc.)
 ├── pages/                # Eleventy input directory
 │   ├── _includes/
@@ -109,11 +114,16 @@ Images were extracted from Figma using `download_figma_images` and saved to `ass
 
 7. **Responsive breakpoints**: `1200px` (tablet — stacks grids, 3-col pills) and `768px` (mobile — 2-col pills, hidden nav, smaller type).
 
+8. **Pricing cards (curriculum page)**: All three cards are intentionally identical — no "featured" treatment on the middle one. Families are not choosing a number of children based on price, so no card should be visually elevated. The `.fees-pricing-card--featured` rule was removed.
+
+9. **Badge sizing in flex columns**: `display: inline-block` alone does not shrink an element to fit its content when it's a direct child of a flex column — the flex algorithm stretches it to the cross axis. Use `align-self: flex-start` alongside `inline-block` (or switch to `width: fit-content`) to make pill/badge elements hug their text.
+
 ---
 
 ## How to Work With This Project
 
-- **Edit styles**: `assets/css/main.css` — single file, well-commented sections
+- **Edit global styles**: `assets/css/main.css` — design tokens, shared components, header/footer
+- **Edit page-specific styles**: `assets/css/<page>.css` (e.g. `home.css`, `curriculum.css`)
 - **Edit home page**: `pages/index.njk`
 - **Edit other pages**: `pages/*.njk`
 - **Edit layout/header/footer**: `pages/_includes/*.njk`
