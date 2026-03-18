@@ -10,7 +10,7 @@
 
 .contact-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 2fr;
   gap: 24px;
 }
 
@@ -245,7 +245,7 @@
 }
 
 /* Responsive */
-@media (max-width: 1200px) {
+@media (max-width: 768px) {
   .contact-cards {
     grid-template-columns: 1fr;
     gap: 16px;

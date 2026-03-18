@@ -26,11 +26,9 @@
 }
 
 .calendar-meta-header h3 {
-  font-family: var(--font-body);
-  font-weight: 700;
+  font-family: var(--font-headings);
   font-size: 18px;
   line-height: 1.5;
-  letter-spacing: -0.024em;
   color: #101828;
 }
 

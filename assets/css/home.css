@@ -100,7 +100,7 @@
   letter-spacing: -0.011em;
   color: var(--primary);
   background-color: var(--white);
-  padding: 10px 20px;
+  padding: 15px 20px 10px;
   border-radius: 0 0 15px 15px;
   margin-top: -10px;
   z-index: -1;
