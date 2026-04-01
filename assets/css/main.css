@@ -598,6 +598,30 @@ footer {
     height: 250px;
   }
 
+  .page-title {
+    padding-top: 32px;
+  }
+
+  /* Sticky header — sits in normal flow on mobile so content isn't hidden under it */
+  header {
+    position: sticky;
+    top: 0;
+  }
+
+  /* Compact logo — remove the desktop negative-margin overlap effect */
+  header .logo-group {
+    margin-left: 0;
+    padding: 10px 16px;
+    flex: 1;
+    min-width: 0;
+    font-size: 18px;
+  }
+
+  header .logo-group img {
+    width: 36px;
+    flex-shrink: 0;
+  }
+
   /* Mobile navigation */
   .nav-toggle {
     display: flex;
