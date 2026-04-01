@@ -309,4 +309,8 @@
   .curriculum-fees {
     padding: 60px 0;
   }
+
+  .fees-pricing-cards {
+    grid-template-columns: 1fr;
+  }
 }

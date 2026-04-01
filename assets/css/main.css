@@ -225,6 +225,48 @@ header nav .nav-active a {
   background-color: var(--primary);
 }
 
+/* Hamburger toggle button */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 50, 33, 0.25);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition:
+    transform 0.25s,
+    opacity 0.25s;
+  transform-origin: center;
+}
+
+.nav-toggle.is-active span:first-child {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.is-active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav-toggle.is-active span:last-child {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 /* Buttons */
 .btn-primary {
   display: inline-block;
@@ -556,7 +598,40 @@ footer {
     height: 250px;
   }
 
+  /* Mobile navigation */
+  .nav-toggle {
+    display: flex;
+  }
+
   header nav {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(14, 69, 37, 0.97);
+    backdrop-filter: blur(8px);
+    padding: 8px var(--container-padding) 20px;
+  }
+
+  header nav.is-open {
+    display: block;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 4px;
+    background: transparent;
+    backdrop-filter: none;
+    border-radius: 0;
+    padding: 8px 0;
+  }
+
+  header nav li {
+    width: 100%;
+  }
+
+  header nav a {
+    display: block;
   }
 }

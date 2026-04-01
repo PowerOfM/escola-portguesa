@@ -110,19 +110,6 @@
   .two-column-image {
     max-width: 531px;
   }
-
-  .teacher-card,
-  .teacher-card--reversed {
-    grid-template-columns: 1fr;
-  }
-
-  .teacher-card-image img,
-  .teacher-card-image-placeholder {
-    width: 100%;
-    max-width: 346px;
-    height: auto;
-    aspect-ratio: 346 / 471;
-  }
 }
 
 @media (max-width: 768px) {
@@ -140,6 +127,16 @@
 
   .about-teachers-list {
     gap: 32px;
+  }
+
+  .teacher-card,
+  .teacher-card:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .teacher-card-image {
+    width: 100%;
+    height: 280px;
   }
 
   .about-volunteers {
