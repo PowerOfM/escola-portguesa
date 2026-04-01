@@ -175,6 +175,7 @@ header .logo-group {
   padding: 15px 40px 15px 40px;
   background-color: white;
   margin-left: -40px;
+  cursor: pointer;
 }
 
 header .logo-group img {
@@ -209,12 +210,28 @@ header nav a:hover {
 }
 
 header nav .nav-register a {
-  background-color: var(--primary);
+  background:
+    radial-gradient(
+      circle at 50% 96%,
+      rgba(0, 200, 70, 0.5) 0%,
+      rgba(0, 130, 48, 0) 100%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(0, 140, 50, 1) 1%,
+      rgba(0, 110, 40, 1) 58%,
+      rgba(0, 90, 33, 1) 100%
+    );
+  border: 1px solid rgba(255, 255, 255, 0.57);
 }
 
 body.home .nav-home,
 body.home .nav-register {
   display: none;
+}
+
+header nav .nav-active a {
+  background-color: var(--primary);
 }
 
 /* Buttons */
@@ -224,14 +241,14 @@ body.home .nav-register {
   background:
     radial-gradient(
       circle at 50% 96%,
-      rgba(0, 255, 95, 1) 0%,
-      rgba(0, 166, 62, 0) 100%
+      rgba(0, 200, 70, 0.5) 0%,
+      rgba(0, 130, 48, 0) 100%
     ),
     radial-gradient(
       circle at 50% 100%,
-      rgba(72, 214, 67, 1) 1%,
-      rgba(66, 175, 96, 1) 58%,
-      rgba(49, 187, 104, 1) 100%
+      rgba(0, 140, 50, 1) 1%,
+      rgba(0, 110, 40, 1) 58%,
+      rgba(0, 90, 33, 1) 100%
     );
   border: 1px solid rgba(255, 255, 255, 0.57);
   border-radius: var(--border-radius);
