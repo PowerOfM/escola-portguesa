@@ -38,7 +38,7 @@ css: home
   </div>
 </section>
 
-<section class="home-curriculum">
+<section class="home-curriculum section-dark">
   <div class="container">
     <h2>{{ home.curriculumSection.heading }}</h2>
     <p class="home-curriculum-intro">{{ home.curriculumSection.intro }}</p>
@@ -63,13 +63,4 @@ css: home
   </div>
 </section>
 
-<section class="home-cta">
-  <div class="home-cta-bg">
-    <img src="/assets/images/cta-bg.png" alt="" />
-  </div>
-  <div class="home-cta-content">
-    <h2>{{ home.cta.heading }}</h2>
-    <p>{{ home.cta.body }}</p>
-    <a href="/contact" class="btn-primary">REGISTER NOW</a>
-  </div>
-</section>
+{% include "cta.njk" %}

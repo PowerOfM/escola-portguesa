@@ -23,7 +23,6 @@
 html,
 body {
   font-family: var(--font-body);
-  font-weight: 400;
   position: relative;
   color: var(--black);
 }
@@ -104,12 +103,6 @@ img {
   width: 100%;
   height: 316px;
   z-index: 0;
-}
-
-.page-hero-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .page-hero-bg::after {
@@ -224,7 +217,6 @@ header nav .nav-register a {
   border: 1px solid rgba(255, 255, 255, 0.57);
 }
 
-body.home .nav-home,
 body.home .nav-register {
   display: none;
 }
@@ -251,11 +243,8 @@ header nav .nav-active a {
     );
   border: 1px solid rgba(255, 255, 255, 0.57);
   border-radius: var(--border-radius);
-  font-family: var(--font-body);
   font-weight: 700;
   font-size: 24px;
-  line-height: 0.83;
-  letter-spacing: -0.006em;
   color: var(--white);
   text-align: center;
   transition:
@@ -274,11 +263,8 @@ header nav .nav-active a {
   background: transparent;
   border: 1px solid var(--primary);
   border-radius: var(--border-radius);
-  font-family: var(--font-body);
   font-weight: 700;
   font-size: 16px;
-  line-height: 1.25;
-  letter-spacing: -0.009em;
   color: var(--primary);
   text-align: center;
   transition:
@@ -334,9 +320,6 @@ footer {
 }
 
 .footer-brand p {
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
   max-width: 579px;
 }
 
@@ -356,8 +339,6 @@ footer {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 18px;
-  line-height: 1.5;
-  letter-spacing: -0.024em;
   color: var(--primary);
 }
 
@@ -370,9 +351,6 @@ footer {
 }
 
 .footer-links-column a {
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
   color: var(--gray-500);
   transition: color 0.2s;
 }
@@ -400,12 +378,6 @@ footer {
   margin-top: 2px;
 }
 
-.footer-contact-item span {
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-}
-
 .footer-bottom {
   padding: 33px 0;
   text-align: center;
@@ -415,7 +387,6 @@ footer {
 .footer-bottom p {
   font-size: 14px;
   line-height: 1.43;
-  letter-spacing: -0.011em;
   color: var(--gray-400);
 }
 
@@ -428,6 +399,62 @@ footer {
 
 .section-dark h2 {
   color: var(--white);
+}
+
+.section-tinted {
+  background-color: rgba(20, 50, 33, 0.05);
+}
+
+/* Info card (shared by curriculum, calendar, contact pages) */
+.info-card {
+  border: 1px solid var(--primary);
+  border-radius: var(--border-radius);
+  padding: 25px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.info-card-header h3 {
+  line-height: 1.17;
+  color: #101828;
+}
+
+.info-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-card-icon--green {
+  background-color: #dcfce7;
+}
+
+.info-card-icon--red {
+  background-color: #ffe2e2;
+}
+
+.info-card-icon--blue {
+  background-color: rgba(111, 174, 255, 0.27);
+}
+
+.info-card-icon--yellow {
+  background-color: #fef9c2;
+}
+
+.info-card p {
+  color: var(--gray-400);
 }
 
 /* CTA Section (shared across pages) */
@@ -447,12 +474,6 @@ footer {
   width: 100%;
   height: 100%;
   z-index: 0;
-}
-
-.home-cta-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .home-cta-bg::after {
@@ -485,7 +506,6 @@ footer {
   color: var(--white);
   font-size: 20px;
   line-height: 1.4;
-  letter-spacing: -0.022em;
 }
 
 /* Responsive */

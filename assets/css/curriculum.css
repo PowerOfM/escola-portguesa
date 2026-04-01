@@ -9,57 +9,6 @@
   gap: 40px;
 }
 
-.curriculum-feature-card {
-  border: 1px solid var(--primary);
-  border-radius: var(--border-radius);
-  padding: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.curriculum-feature-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.curriculum-feature-header h3 {
-  font-family: var(--font-headings);
-  font-size: 24px;
-  line-height: 1.17;
-  color: #101828;
-}
-
-.curriculum-feature-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.curriculum-feature-icon--green {
-  background-color: #dcfce7;
-}
-
-.curriculum-feature-icon--red {
-  background-color: #ffe2e2;
-}
-
-.curriculum-feature-icon--blue {
-  background-color: rgba(111, 174, 255, 0.27);
-}
-
-.curriculum-feature-card p {
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  color: var(--gray-400);
-}
-
 /* Curriculum levels */
 .curriculum-levels {
   padding: 32px 0 0;
@@ -75,11 +24,8 @@
   padding: 12px 25px;
   border: none;
   border-radius: 10px;
-  font-family: var(--font-body);
   font-weight: 600;
   font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
   cursor: pointer;
   transition:
     background-color 0.2s,
@@ -117,8 +63,6 @@
 }
 
 .curriculum-detail-header h2 {
-  font-size: 36px;
-  line-height: 1.11;
   color: #101828;
   margin-bottom: 8px;
 }
@@ -126,14 +70,12 @@
 .curriculum-detail-age {
   font-size: 18px;
   line-height: 1.56;
-  letter-spacing: -0.024em;
   color: var(--gray-400);
 }
 
 .curriculum-detail-intro {
   font-size: 20px;
   line-height: 1.63;
-  letter-spacing: -0.022em;
   color: #364153;
   margin-bottom: 32px;
 }
@@ -152,7 +94,6 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 1.6;
-  letter-spacing: 0.004em;
   color: #101828;
   margin-bottom: 16px;
 }
@@ -174,9 +115,6 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
   color: #364153;
 }
 
@@ -202,9 +140,6 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
   color: #364153;
 }
 
@@ -212,8 +147,6 @@
   content: "•";
   color: #e7000b;
   font-weight: 700;
-  font-size: 16px;
-  line-height: 1.5;
   flex-shrink: 0;
 }
 
@@ -238,10 +171,8 @@
 }
 
 .curriculum-fees-image img {
-  width: 100%;
   height: auto;
   max-height: 674px;
-  object-fit: cover;
 }
 
 .curriculum-fees-content {
@@ -301,9 +232,7 @@
 }
 
 .curriculum-fees-payment > p {
-  font-size: 16px;
   line-height: 1.63;
-  letter-spacing: -0.02em;
   color: #111111;
 }
 
@@ -317,8 +246,6 @@
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
   color: #111111;
 }
 
@@ -333,66 +260,7 @@
 .fees-payment-list li {
   font-size: 15px;
   line-height: 1.6;
-  letter-spacing: -0.02em;
   color: var(--gray-400);
-}
-
-/* CTA section (reused from home) */
-.home-cta {
-  position: relative;
-  min-height: 528px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.home-cta-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-.home-cta-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.home-cta-bg::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.home-cta-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  max-width: 807px;
-  padding: 0 var(--container-padding);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-}
-
-.home-cta-content h2 {
-  color: var(--white);
-}
-
-.home-cta-content p {
-  color: var(--white);
-  font-size: 20px;
-  line-height: 1.4;
-  letter-spacing: -0.022em;
 }
 
 /* Responsive */

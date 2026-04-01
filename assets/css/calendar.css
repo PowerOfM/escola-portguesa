@@ -9,51 +9,6 @@
   gap: 24px;
 }
 
-.calendar-meta-item {
-  border: 1px solid var(--primary);
-  border-radius: var(--border-radius);
-  padding: 25px;
-  background-color: var(--white);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.calendar-meta-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.calendar-meta-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.calendar-meta-icon--green {
-  background-color: #dcfce7;
-}
-
-.calendar-meta-icon--blue {
-  background-color: rgba(111, 174, 255, 0.27);
-}
-
-.calendar-meta-icon--yellow {
-  background-color: #fef9c2;
-}
-
-.calendar-meta-item p {
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  color: var(--gray-400);
-}
-
 /* Dates list */
 .calendar-dates {
   padding: 60px 0;
@@ -123,14 +78,11 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 1.4;
-  letter-spacing: 0.003em;
   color: #101828;
 }
 
 .calendar-item-content p {
-  font-size: 16px;
   line-height: 1.625;
-  letter-spacing: -0.02em;
   color: #364153;
 }
 
@@ -165,7 +117,6 @@
 /* Fundraiser section */
 .calendar-fundraiser {
   padding: 80px 0;
-  background-color: rgba(20, 50, 33, 0.05);
 }
 
 .calendar-fundraiser h2 {
@@ -174,9 +125,7 @@
 }
 
 .calendar-fundraiser p {
-  font-size: 16px;
   line-height: 1.625;
-  letter-spacing: -0.02em;
   color: var(--gray-400);
   max-width: 900px;
 }

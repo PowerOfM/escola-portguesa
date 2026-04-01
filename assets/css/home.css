@@ -17,12 +17,6 @@
   z-index: 0;
 }
 
-.home-hero-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .home-hero-bg::after {
   content: "";
   position: absolute;
@@ -76,13 +70,11 @@
   background-color: var(--primary);
   border-radius: 9999px;
   padding: 8.5px 16px;
-  margin-bottom: 0;
 }
 
 .home-hero-badge span {
   font-size: 14px;
   line-height: 1.43;
-  letter-spacing: -0.011em;
   color: #fefefe;
 }
 
@@ -90,7 +82,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0;
   width: fit-content;
   flex-shrink: 0;
 }
@@ -98,7 +89,6 @@
 .home-hero-cta-tag {
   font-size: 14px;
   line-height: 1.43;
-  letter-spacing: -0.011em;
   color: var(--primary);
   background-color: var(--white);
   padding: 15px 20px 10px;
@@ -145,14 +135,11 @@
 .home-school-content .lead {
   font-size: 20px;
   line-height: 1.4;
-  letter-spacing: -0.05em;
   color: var(--gray-400);
 }
 
 .home-school-content p:not(.lead) {
-  font-size: 16px;
   line-height: 1.625;
-  letter-spacing: -0.02em;
   color: var(--black);
 }
 
@@ -162,20 +149,12 @@
 
 /* Curriculum Section */
 .home-curriculum {
-  background-color: var(--primary);
   padding: 91px 0 100px;
 }
 
-.home-curriculum h2 {
-  color: var(--white);
-  margin-bottom: 14px;
-}
-
 .home-curriculum-intro {
-  color: var(--white);
   font-size: 20px;
   line-height: 1.4;
-  letter-spacing: -0.022em;
   max-width: 1293px;
   margin-bottom: 33px;
 }
@@ -195,7 +174,6 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 1.4;
-  letter-spacing: -0.022em;
   text-align: center;
   transition: transform 0.2s;
 }
@@ -259,7 +237,6 @@
 .home-teachers-content p {
   font-size: 20px;
   line-height: 1.4;
-  letter-spacing: -0.022em;
   color: var(--primary);
 }
 
@@ -273,64 +250,6 @@
 
 .home-teachers-image img {
   height: 465px;
-}
-
-/* CTA Section */
-.home-cta {
-  position: relative;
-  min-height: 528px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.home-cta-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-.home-cta-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.home-cta-bg::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.home-cta-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  max-width: 807px;
-  padding: 0 var(--container-padding);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-}
-
-.home-cta-content h2 {
-  color: var(--white);
-}
-
-.home-cta-content p {
-  color: var(--white);
-  font-size: 20px;
-  line-height: 1.4;
-  letter-spacing: -0.022em;
 }
 
 /* Responsive */
@@ -365,12 +284,7 @@
     gap: 24px;
   }
 
-  .home-hero-badge {
-    margin-bottom: 0;
-  }
-
   .home-hero-cta {
-    flex-direction: column;
     align-items: flex-start;
   }
 

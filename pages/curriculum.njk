@@ -64,28 +64,28 @@ navPage: curriculum
 <section class="curriculum-intro">
   <div class="container">
     <div class="curriculum-features">
-      <div class="curriculum-feature-card">
-        <div class="curriculum-feature-header">
+      <div class="info-card">
+        <div class="info-card-header">
           <h3>Standards-Aligned</h3>
-          <div class="curriculum-feature-icon curriculum-feature-icon--green">
+          <div class="info-card-icon info-card-icon--green">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00A63E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           </div>
         </div>
         <p>Our curriculum follows Portuguese Ministry of Education standards while being adapted for students in Canada.</p>
       </div>
-      <div class="curriculum-feature-card">
-        <div class="curriculum-feature-header">
+      <div class="info-card">
+        <div class="info-card-header">
           <h3>Age-Appropriate</h3>
-          <div class="curriculum-feature-icon curriculum-feature-icon--red">
+          <div class="info-card-icon info-card-icon--red">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E7000B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
           </div>
         </div>
         <p>Each level is carefully designed to match the developmental stage and learning capabilities of students.</p>
       </div>
-      <div class="curriculum-feature-card">
-        <div class="curriculum-feature-header">
+      <div class="info-card">
+        <div class="info-card-header">
           <h3>Comprehensive</h3>
-          <div class="curriculum-feature-icon curriculum-feature-icon--blue">
+          <div class="info-card-icon info-card-icon--blue">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#155DFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
           </div>
         </div>
@@ -144,13 +144,4 @@ navPage: curriculum
   </div>
 </section>
 
-<section class="home-cta">
-  <div class="home-cta-bg">
-    <img src="/assets/images/cta-bg.png" alt="" />
-  </div>
-  <div class="home-cta-content">
-    <h2>{{ home.cta.heading }}</h2>
-    <p>{{ home.cta.body }}</p>
-    <a href="/contact" class="btn-primary">REGISTER NOW</a>
-  </div>
-</section>
+{% include "cta.njk" %}

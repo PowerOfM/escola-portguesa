@@ -14,51 +14,6 @@
   gap: 24px;
 }
 
-.contact-card {
-  border: 1px solid var(--primary);
-  border-radius: var(--border-radius);
-  padding: 25px;
-  background-color: var(--white);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.contact-card-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.contact-card-icon--green {
-  background-color: #dcfce7;
-}
-
-.contact-card-icon--yellow {
-  background-color: #fef9c2;
-}
-
-.contact-card-icon--blue {
-  background-color: rgba(111, 174, 255, 0.27);
-}
-
-.contact-card p {
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  color: var(--gray-400);
-}
-
 .contact-card a {
   color: var(--primary);
   text-decoration: underline;
@@ -71,7 +26,6 @@
 /* Form section */
 .contact-form-section {
   padding: 80px 0;
-  background-color: rgba(20, 50, 33, 0.05);
 }
 
 .contact-form-section h2 {
@@ -80,9 +34,6 @@
 }
 
 .contact-form-intro {
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
   color: var(--gray-400);
   margin-bottom: 32px;
 }
@@ -110,7 +61,6 @@
   font-size: 14px;
   font-weight: 600;
   line-height: 1.43;
-  letter-spacing: -0.011em;
   color: #101828;
 }
 
@@ -122,10 +72,7 @@
   padding: 12px 16px;
   border: 1px solid #d1d5dc;
   border-radius: 10px;
-  font-family: var(--font-body);
-  font-size: 16px;
   line-height: 1.21;
-  letter-spacing: -0.02em;
   color: var(--black);
   background-color: var(--white);
   transition: border-color 0.2s;
@@ -183,8 +130,6 @@
 .contact-form-radio span {
   font-size: 16px;
   font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
   color: #364153;
 }
 
@@ -208,7 +153,6 @@
 }
 
 .contact-form-fieldset legend {
-  font-family: var(--font-body);
   font-weight: 600;
   font-size: 18px;
 }
@@ -228,7 +172,6 @@
 .contact-form-note {
   font-size: 14px;
   line-height: 1.43;
-  letter-spacing: -0.011em;
   color: var(--gray-400);
 }
 
@@ -238,9 +181,7 @@
     grid-template-columns: 1fr;
     gap: 16px;
   }
-}
 
-@media (max-width: 768px) {
   .contact-info {
     padding: 40px 0;
   }

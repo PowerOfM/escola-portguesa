@@ -19,10 +19,8 @@
 }
 
 .two-column-image img {
-  width: 100%;
   height: auto;
   max-height: 468px;
-  object-fit: cover;
 }
 
 .two-column-content {
@@ -32,9 +30,7 @@
 }
 
 .two-column-content p {
-  font-size: 16px;
   line-height: 1.625;
-  letter-spacing: -0.02em;
   color: var(--gray-400);
 }
 
@@ -78,22 +74,15 @@
   overflow: hidden;
 }
 
-.teacher-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .teacher-card-image-placeholder {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-/* Volunteers section */
+/* Volunteers section — background provided by .section-tinted */
 .about-volunteers {
   padding: 100px 0;
-  background-color: rgba(20, 50, 33, 0.05);
 }
 
 .about-volunteers h2 {
@@ -102,9 +91,7 @@
 }
 
 .about-volunteers p {
-  font-size: 16px;
   line-height: 1.625;
-  letter-spacing: -0.02em;
   color: var(--gray-400);
   max-width: 900px;
 }
