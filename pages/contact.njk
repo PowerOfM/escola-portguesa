@@ -16,6 +16,7 @@ navPage: contact
           <div class="contact-card-icon contact-card-icon--green">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00A63E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
+          <p>{{ site.address.street }}<br />{{ site.address.city }}, {{ site.address.province }} {{ site.address.postal }}<br />{{ site.address.country }}</p>
         </div>
         <p>123 Portuguese Way<br />Vancouver, BC V6B 1A1<br />Canada</p>
       </div>
@@ -85,7 +86,7 @@ navPage: contact
           <label for="grade-level" class="contact-form-label">Desired Grade Level *</label>
           <select id="grade-level" name="grade-level" required>
             <option value="" disabled selected>Select a grade level</option>
-            <option value="pre-k">Pr&eacute;-Escola (Ages 4-5)</option>
+            <option value="pre-k">Pré-Escola (Ages 4-5)</option>
             <option value="k">Kindergarten (Ages 5-6)</option>
             <option value="1-2">Grades 1-2</option>
             <option value="3-5">Grades 3-5</option>

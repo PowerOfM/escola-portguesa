@@ -1,0 +1,93 @@
+[
+  {
+    "month": "Sep",
+    "day": "6",
+    "title": "First Day of School",
+    "tag": "academic",
+    "description": "Classes begin for the 2026–2027 school year. Welcome assembly at 9:00 AM."
+  },
+  {
+    "month": "Oct",
+    "day": "5",
+    "title": "Implantação da República",
+    "tag": "cultural",
+    "description": "No classes. Holiday commemorating the establishment of the Portuguese Republic in 1910."
+  },
+  {
+    "month": "Oct",
+    "day": "10",
+    "title": "Parent–Teacher Conferences",
+    "tag": "academic",
+    "description": "Individual meetings with teachers to discuss student progress. Sign-up sheets available at the office."
+  },
+  {
+    "month": "Nov",
+    "day": "1",
+    "title": "Dia de Todos os Santos",
+    "tag": "cultural",
+    "description": "No classes. All Saints' Day holiday."
+  },
+  {
+    "month": "Nov",
+    "day": "30",
+    "title": "Tuition Due",
+    "tag": "academic",
+    "description": "First installment or full payment due. See <a href=\"/curriculum\">School Fees</a> for payment options."
+  },
+  {
+    "month": "Dec",
+    "day": "20",
+    "title": "Winter Break Begins",
+    "tag": "academic",
+    "description": "Last day of classes before winter break. Holiday celebration in classrooms."
+  },
+  {
+    "month": "Jan",
+    "day": "10",
+    "title": "Classes Resume",
+    "tag": "academic",
+    "description": "First day back after winter break."
+  },
+  {
+    "month": "Jan",
+    "day": "31",
+    "title": "Second Tuition Installment Due",
+    "tag": "academic",
+    "description": "Second installment due for families on the two-payment plan."
+  },
+  {
+    "month": "Mar",
+    "day": "14",
+    "title": "Spring Break Begins",
+    "tag": "academic",
+    "description": "No classes during spring break week."
+  },
+  {
+    "month": "Mar",
+    "day": "28",
+    "title": "Classes Resume",
+    "tag": "academic",
+    "description": "First day back after spring break."
+  },
+  {
+    "month": "Apr",
+    "day": "25",
+    "title": "Dia da Liberdade",
+    "tag": "cultural",
+    "description": "No classes. Liberty Day holiday celebrating the 1974 Carnation Revolution."
+  },
+  {
+    "month": "Jun",
+    "day": "10",
+    "title": "Dia de Portugal",
+    "tag": "cultural",
+    "description": "No classes. Portugal Day celebration."
+  },
+  {
+    "month": "Jun",
+    "day": "19",
+    "title": "Last Day of School",
+    "tag": "academic",
+    "description": "Final day of the 2026–2027 school year. End-of-year celebration and awards ceremony."
+  }
+]

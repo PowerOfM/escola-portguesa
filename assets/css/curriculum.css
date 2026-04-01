@@ -81,7 +81,9 @@
   line-height: 1.5;
   letter-spacing: -0.02em;
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
   background-color: transparent;
   color: var(--primary);
 }

@@ -12,35 +12,9 @@ navPage: about
       <img src="/assets/images/about-intro.png" alt="Escola Portuguesa" />
     </div>
     <div class="two-column-content">
-      <p>
-        For over 50 years, Escola Nossa Senhora de Fátima has been a welcoming
-        and inspiring place where children and young people learn, grow, and
-        connect deeply with the Portuguese language and culture. Our school
-        fosters a sense of belonging while encouraging curiosity, confidence,
-        and a love of learning through meaningful and shared experiences.
-      </p>
-      <p>
-        Portuguese is one of the most widely spoken languages in the world,
-        ranking among the top six globally. Learning Portuguese is a powerful
-        and enriching journey that introduces children to new ways of thinking,
-        cultural awareness, and lifelong skills. From an early age, language
-        learning strengthens cognitive abilities such as memory,
-        problem-solving, and mental flexibility, while also enhancing
-        communication skills and self-confidence. Being bilingual or
-        multilingual supports academic success and prepares children to thrive
-        in an increasingly global society.
-      </p>
-      <p>
-        At Escola Nossa Senhora de Fátima, we play an essential role in this
-        journey by offering a supportive, engaging, and immersive learning
-        environment. Children learn naturally through play, interaction, and
-        meaningful experiences. Guided by dedicated teachers, age-appropriate
-        methods, and a strong connection to Portuguese culture, each child is
-        encouraged to feel motivated, valued, and proud of their progress. We
-        help build confidence in their heritage while laying a strong
-        foundation for future learning, personal growth, and global
-        citizenship.
-      </p>
+      {% for paragraph in about.intro %}
+        <p>{{ paragraph }}</p>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -52,158 +26,43 @@ navPage: about
     <h2>Our Teachers</h2>
 
     <div class="about-teachers-list">
-      <article class="teacher-card">
-        <div class="teacher-card-text">
-          <h3>Lina Couto Cunha</h3>
-          <p>
-            Chamo-me Lina Couto Cunha e sou professora na Escola Portuguesa de
-            Nossa Senhora de Fátima, em Vancouver. Dou aulas para os alunos
-            A1/A2 com idades entre os 12 e os 16 anos.
-          </p>
-          <p>
-            Nasci e cresci nos Açores, onde desenvolvi desde cedo uma forte
-            ligação à educação e à língua portuguesa. Concluí a minha
-            licenciatura em Educação de Infância pela Universidade dos Açores,
-            formação que me proporcionou bases sólidas na pedagogia, no
-            desenvolvimento infantil e na prática educativa.
-          </p>
-          <p>
-            Após me mudar para o Canadá, continuei a aprofundar a minha
-            formação, realizando a equivalência em Early Childhood Education
-            and Care pela Capilano University, na Colúmbia Britânica. Esta
-            formação adicional permitiu-me integrar plenamente o sistema
-            educativo canadiano e compreender as práticas de apoio à diversidade
-            e inclusão infantil.
-          </p>
-          <p>
-            Atualmente, trabalho como Coordenadora do Supported Child
-            Development Program na região de Tri-Cities, onde colaboro com
-            famílias, centros infantis, escolas e profissionais de várias áreas
-            para promover o desenvolvimento e a inclusão de crianças com
-            necessidades diversas. Paralelamente, ensino na Escola Portuguesa
-            de Nossa Senhora de Fátima, onde, movida pela minha paixão pela
-            língua portuguesa, preparo jovens para os exames CAPLE, apoiando o
-            seu percurso académico e cultural.
-          </p>
-        </div>
-        <div class="teacher-card-image">
-          <img src="/assets/images/teacher-lina.png" alt="Lina Couto Cunha" />
-        </div>
-      </article>
-
-      <article class="teacher-card teacher-card--reversed">
-        <div class="teacher-card-image">
-          <div class="teacher-card-image-placeholder"></div>
-        </div>
-        <div class="teacher-card-text">
-          <h3>Rosa Marques</h3>
-          <p>
-            My name is Rosa Marques and I am the Kindergarten-Preschool teacher
-            at Escola Portuguesa Nossa Senhora de Fatima. I have dedicated
-            almost 40 years to building strong connections with both typical and
-            developmentally challenged children and their families.
-          </p>
-          <p>
-            My goal is to spark wonder and develop early language skills in a
-            playful environment. I introduce cultural experiences and love to
-            play traditional games. We learn thru story telling and bringing
-            creativity to all our activities. I hope that your child will
-            surprise family members with the few words that they have learned
-            each week and strengthen the bond they have to our heritage.
-          </p>
-          <p>
-            I grew up in Vancouver and am also an alumnus of this school as I
-            attended for 9 years back in the 80's. Those classes aided in my
-            move to Portugal where I lived with my husband and son for 18 years.
-            Upon our return to Vancouver, I joined the Portuguese School team
-            and have enjoyed creating a safe and happy space for our little
-            ones. I look forward to a wonderful partnership in your child's
-            education.
-          </p>
-        </div>
-      </article>
-
-      <article class="teacher-card">
-        <div class="teacher-card-text">
-          <h3>Rosa Anita</h3>
-          <p>
-            Originally from Portugal, I bring a diverse professional background
-            and a strong commitment to education. I am a qualified Early
-            Childhood Educator (ECE) with Montessori certification and also hold
-            a degree in Accounting and Administration.
-          </p>
-          <p>
-            In 2018, I made a purposeful transition into the field of education,
-            where I discovered my true passion—working with children and
-            supporting their learning and development. I began my educational
-            journey in the United Kingdom, where I worked as a Teaching
-            Assistant and Midday Meals Supervisor. These roles provided me with
-            valuable experience supporting children's academic, social, and
-            emotional development in a structured school environment.
-          </p>
-          <p>
-            In 2023, I embraced a specialized role as a Portuguese language
-            teacher for non-Portuguese speakers at a dedicated Portuguese
-            School. In this position, I supported students in developing their
-            Portuguese language skills while fostering a meaningful connection
-            to Portuguese culture and identity.
-          </p>
-          <p>
-            Currently, I work as an Early Childhood Educator (ECE). My training
-            and professional experience have strengthened my ability to create
-            nurturing, engaging, and inclusive learning environments that
-            respect each child's individuality and promote holistic
-            development. My time working in England played an important role in
-            shaping my educational approach and reinforcing my dedication to
-            early childhood education.
-          </p>
-          <p>
-            I am known for my strong organizational skills, reliability,
-            adaptability, and positive work ethic. I thrive in dynamic
-            environments and value collaboration within committed and supportive
-            educational teams.
-          </p>
-          <p>
-            Outside of my professional role, I enjoy activities that enrich both
-            my personal life and my work with children. I have a longstanding
-            passion for arts and crafts, which allows me to express creativity
-            and bring ideas to life in the classroom. I also enjoy traveling and
-            learning about different cultures, as well as spending time in
-            nature, where I find inspiration and balance.
-          </p>
-          <p>
-            My multifaceted background reflects my commitment to continuous
-            learning and a holistic approach to education. I am excited to
-            continue contributing to a Portuguese School environment that values
-            language, culture, and the development of young learners.
-          </p>
-        </div>
-        <div class="teacher-card-image">
-          <img
-            src="/assets/images/teacher-rosa-anita.png"
-            alt="Rosa Anita"
-          />
-        </div>
-      </article>
+      {% for slug, teacher in teachers %}
+        <article class="teacher-card{% if teacher.reversed %} teacher-card--reversed{% endif %}">
+          {% if teacher.reversed %}
+            <div class="teacher-card-image">
+              {% if teacher.image %}
+                <img src="{{ teacher.image }}" alt="{{ teacher.name }}" />
+              {% else %}
+                <div class="teacher-card-image-placeholder"></div>
+              {% endif %}
+            </div>
+          {% endif %}
+          <div class="teacher-card-text">
+            <h3>{{ teacher.name }}</h3>
+            {% for paragraph in teacher.bio %}
+              <p>{{ paragraph }}</p>
+            {% endfor %}
+          </div>
+          {% if not teacher.reversed %}
+            <div class="teacher-card-image">
+              {% if teacher.image %}
+                <img src="{{ teacher.image }}" alt="{{ teacher.name }}" />
+              {% else %}
+                <div class="teacher-card-image-placeholder"></div>
+              {% endif %}
+            </div>
+          {% endif %}
+        </article>
+      {% endfor %}
     </div>
   </div>
 </section>
 
 <section class="about-volunteers">
   <div class="container">
-    <h2>Volunteers &amp; Guest Speakers</h2>
-    <p>
-      Our school welcomes student volunteers who assist in classrooms,
-      particularly with the youngest children. These volunteers are often high
-      school or college/university students. Occasionally, we have visits from
-      our coordinator, book editors, and other special guests. Students greatly
-      benefit from these visits, and the visitors are always excited to join our
-      school.
-    </p>
-    <p>
-      Parents or grandparents who would like to come to a classroom as a guest
-      speaker, to talk about their profession, lead an activity, or read a
-      storybook, are welcome. Please let us know, and we will arrange it.
-    </p>
+    <h2>{{ about.volunteers.heading }}</h2>
+    {% for paragraph in about.volunteers.body %}
+      <p>{{ paragraph }}</p>
+    {% endfor %}
   </div>
 </section>
