@@ -44,7 +44,7 @@ css: home
     <p class="home-curriculum-intro">{{ home.curriculumSection.intro }}</p>
     <div class="home-curriculum-pills">
       {% for slug, level in curriculum %}
-        <a href="/curriculum" class="pill pill-{{ loop.index }}">{{ level.tab }}</a>
+        <a href="/curriculum#{{ slug }}" class="pill pill-{{ loop.index }}">{{ level.title }}</a>
       {% endfor %}
     </div>
   </div>

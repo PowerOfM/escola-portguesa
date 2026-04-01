@@ -6,6 +6,61 @@ heroImage: /assets/images/curriculum-hero.png
 navPage: curriculum
 ---
 
+<section class="curriculum-levels">
+  <div class="container">
+    <div class="curriculum-tabs">
+      {% for slug, level in curriculum %}
+        <button class="curriculum-tab{% if loop.first %} curriculum-tab--active{% endif %}" data-tab="{{ slug }}">{{ level.title }}</button>
+      {% endfor %}
+    </div>
+
+    {% for slug, level in curriculum %}
+      <div class="curriculum-detail{% if loop.first %} is-visible{% endif %}" data-panel="{{ slug }}">
+        <div class="curriculum-detail-header">
+          <div>
+            <h2>{{ level.title }}</h2>
+          </div>
+        </div>
+        <p class="curriculum-detail-intro">{{ level.intro }}</p>
+        <div class="curriculum-detail-columns">
+          <div class="curriculum-detail-column">
+            <h3>Learning Objectives</h3>
+            <ul class="curriculum-checklist">
+              {% for item in level.objectives %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="curriculum-detail-column">
+            <h3>Topics Covered</h3>
+            <ul class="curriculum-bullet-list">
+              {% for item in level.topics %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<script>
+  const tabs = document.querySelectorAll('.curriculum-tab');
+  const details = document.querySelectorAll('.curriculum-detail');
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) { t.classList.remove('curriculum-tab--active'); });
+      details.forEach(function (d) { d.classList.remove('is-visible'); });
+
+      tab.classList.add('curriculum-tab--active');
+      document.querySelector('.curriculum-detail[data-panel="' + tab.dataset.tab + '"]').classList.add('is-visible');
+    });
+  });
+</script>
+
+
 <section class="curriculum-intro">
   <div class="container">
     <div class="curriculum-features">
@@ -39,67 +94,6 @@ navPage: curriculum
     </div>
   </div>
 </section>
-
-<section class="curriculum-levels">
-  <div class="container">
-    <div class="curriculum-tabs">
-      {% for slug, level in curriculum %}
-        <button class="curriculum-tab{% if loop.first %} curriculum-tab--active{% endif %}" data-tab="{{ slug }}">{{ level.tab }}</button>
-      {% endfor %}
-    </div>
-
-    {% for slug, level in curriculum %}
-      <div class="curriculum-detail{% if not loop.first %} curriculum-detail--hidden{% endif %}" data-panel="{{ slug }}">
-        <div class="curriculum-detail-header">
-          <div>
-            <h2>{{ level.title }}</h2>
-            <p class="curriculum-detail-age">{{ level.ages }}</p>
-          </div>
-        </div>
-        <p class="curriculum-detail-intro">{{ level.intro }}</p>
-        <div class="curriculum-detail-columns">
-          <div class="curriculum-detail-column">
-            <h3>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              Learning Objectives
-            </h3>
-            <ul class="curriculum-checklist">
-              {% for item in level.objectives %}
-                <li>{{ item }}</li>
-              {% endfor %}
-            </ul>
-          </div>
-          <div class="curriculum-detail-column">
-            <h3>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
-              Topics Covered
-            </h3>
-            <ul class="curriculum-bullet-list">
-              {% for item in level.topics %}
-                <li>{{ item }}</li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-      </div>
-    {% endfor %}
-  </div>
-</section>
-
-<script>
-  const tabs = document.querySelectorAll('.curriculum-tab');
-  const details = document.querySelectorAll('.curriculum-detail');
-
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      tabs.forEach(function (t) { t.classList.remove('curriculum-tab--active'); });
-      details.forEach(function (d) { d.classList.remove('is-visible'); });
-
-      tab.classList.add('curriculum-tab--active');
-      document.querySelector('.curriculum-detail[data-tab="' + tab.dataset.tab + '"]').classList.add('is-visible');
-    });
-  });
-</script>
 
 <section class="curriculum-fees">
   <div class="container curriculum-fees-grid">

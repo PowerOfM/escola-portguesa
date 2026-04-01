@@ -13,7 +13,7 @@ navPage: about
     </div>
     <div class="two-column-content">
       {% for paragraph in about.intro %}
-        <p>{{ paragraph }}</p>
+      <p>{{ paragraph }}</p>
       {% endfor %}
     </div>
   </div>
@@ -27,32 +27,21 @@ navPage: about
 
     <div class="about-teachers-list">
       {% for slug, teacher in teachers %}
-        <article class="teacher-card{% if teacher.reversed %} teacher-card--reversed{% endif %}">
-          {% if teacher.reversed %}
-            <div class="teacher-card-image">
-              {% if teacher.image %}
-                <img src="{{ teacher.image }}" alt="{{ teacher.name }}" />
-              {% else %}
-                <div class="teacher-card-image-placeholder"></div>
-              {% endif %}
-            </div>
+      <article class="teacher-card">
+        <div class="teacher-card-image">
+          {% if teacher.image %}
+          <img src="{{ teacher.image }}" alt="{{ teacher.name }}" />
+          {% else %}
+          <div class="teacher-card-image-placeholder"></div>
           {% endif %}
-          <div class="teacher-card-text">
-            <h3>{{ teacher.name }}</h3>
-            {% for paragraph in teacher.bio %}
-              <p>{{ paragraph }}</p>
-            {% endfor %}
-          </div>
-          {% if not teacher.reversed %}
-            <div class="teacher-card-image">
-              {% if teacher.image %}
-                <img src="{{ teacher.image }}" alt="{{ teacher.name }}" />
-              {% else %}
-                <div class="teacher-card-image-placeholder"></div>
-              {% endif %}
-            </div>
-          {% endif %}
-        </article>
+        </div>
+        <div class="teacher-card-text">
+          <h3>{{ teacher.name }}</h3>
+          {% for paragraph in teacher.bio %}
+          <p>{{ paragraph }}</p>
+          {% endfor %}
+        </div>
+      </article>
       {% endfor %}
     </div>
   </div>
@@ -62,7 +51,7 @@ navPage: about
   <div class="container">
     <h2>{{ about.volunteers.heading }}</h2>
     {% for paragraph in about.volunteers.body %}
-      <p>{{ paragraph }}</p>
+    <p>{{ paragraph }}</p>
     {% endfor %}
   </div>
 </section>

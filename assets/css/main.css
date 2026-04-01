@@ -1,7 +1,7 @@
 @import url(https://fonts.bunny.net/css?family=crimson-pro:400|inter:400,400i,600,600i|prata:400);
 
 :root {
-  --primary: #143221;
+  --primary: #0e4525;
   --white: #ffffff;
   --gray-400: #4a5565;
   --gray-500: #99a1af;
@@ -137,7 +137,6 @@ img {
 
 .page-hero h1 {
   color: var(--white);
-  max-width: 575px;
 }
 
 /* Header */

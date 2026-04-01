@@ -156,6 +156,10 @@
   color: var(--black);
 }
 
+.home .btn-outline {
+  align-self: flex-start;
+}
+
 /* Curriculum Section */
 .home-curriculum {
   background-color: var(--primary);

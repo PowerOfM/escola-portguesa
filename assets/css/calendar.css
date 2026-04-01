@@ -25,13 +25,6 @@
   align-items: flex-end;
 }
 
-.calendar-meta-header h3 {
-  font-family: var(--font-headings);
-  font-size: 18px;
-  line-height: 1.5;
-  color: #101828;
-}
-
 .calendar-meta-icon {
   width: 48px;
   height: 48px;

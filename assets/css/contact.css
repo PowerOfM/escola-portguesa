@@ -30,15 +30,6 @@
   align-items: flex-end;
 }
 
-.contact-card-header h3 {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 1.5;
-  letter-spacing: -0.024em;
-  color: #101828;
-}
-
 .contact-card-icon {
   width: 48px;
   height: 48px;
@@ -171,7 +162,9 @@
   padding: 16px;
   border: 2px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: border-color 0.2s, background-color 0.2s;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
 }
 
 .contact-form-radio:first-child {
@@ -206,23 +199,18 @@
 
 /* Fieldset */
 .contact-form-fieldset {
-  border: none;
-  border-top: 1px solid #e5e7eb;
   padding-top: 24px;
   margin: 0;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  border-radius: var(--border-radius);
 }
 
 .contact-form-fieldset legend {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 18px;
-  line-height: 1.56;
-  letter-spacing: -0.024em;
-  color: #101828;
-  padding: 0;
 }
 
 /* Form actions */
