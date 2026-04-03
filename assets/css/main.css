@@ -598,22 +598,23 @@ footer {
     height: 250px;
   }
 
-  .page-title {
-    padding-top: 32px;
-  }
-
-  /* Sticky header — sits in normal flow on mobile so content isn't hidden under it */
+  /* Header: solid white bar full-width, green accent line at the bottom */
   header {
-    position: sticky;
-    top: 0;
+    background-color: var(--white);
+    border-bottom: 6px solid var(--primary);
   }
 
-  /* Compact logo — remove the desktop negative-margin overlap effect */
+  header::before {
+    display: none;
+  }
+
+  /* Logo: full-width, remove desktop negative-margin overlap effect */
   header .logo-group {
     margin-left: 0;
     padding: 10px 16px;
     flex: 1;
     min-width: 0;
+    max-width: none;
     font-size: 18px;
   }
 
@@ -622,9 +623,11 @@ footer {
     flex-shrink: 0;
   }
 
-  /* Mobile navigation */
+  /* Hamburger: solid green so it reads clearly on the white header */
   .nav-toggle {
     display: flex;
+    background-color: var(--primary);
+    backdrop-filter: none;
   }
 
   header nav {
