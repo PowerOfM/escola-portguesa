@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+import site from '../data/site.json';
+---
+
+<Layout
+  title="Adults Classes"
+  css={["about", "curriculum", "contact"]}
+  heroImage="/assets/images/about-hero.png"
+  navPage="adults"
+>
+  <section class="two-column">
+    <div class="container two-column-grid">
+      <div class="two-column-image">
+        <img src="/assets/images/our-school.png" alt="Adults learning Portuguese" />
+      </div>
+      <div class="two-column-content">
+        <p class="lead">We are excited to announce a new initiative launching for the <strong>2026–2027 school year</strong>: Portuguese language classes designed specifically for adult learners.</p>
+        <p>Whether you are reconnecting with your heritage, supporting your children's learning at home, preparing to visit Portugal or Brazil, or simply want to discover one of the world's most widely spoken languages — this program is for you.</p>
+        <p>Our adult classes will bring the same dedication, cultural richness, and community spirit that has defined Escola Portuguesa Nossa Senhora de Fátima for over 40 years — tailored to the pace and interests of adult learners.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="curriculum-intro">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 1.5rem;">What to Expect</h2>
+      <div class="curriculum-features">
+        <div class="info-card">
+          <div class="info-card-header">
+            <h3>All Levels Welcome</h3>
+            <div class="info-card-icon info-card-icon--green">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00A63E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+          </div>
+          <p>Classes will be structured for complete beginners through to intermediate speakers. No prior knowledge of Portuguese required.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card-header">
+            <h3>Saturday Schedule</h3>
+            <div class="info-card-icon info-card-icon--blue">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#155DFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            </div>
+          </div>
+          <p>Classes run on Saturdays alongside our children's program, making it easy for parents to learn while their children do too.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card-header">
+            <h3>Culture &amp; Community</h3>
+            <div class="info-card-icon info-card-icon--yellow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D08700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+          </div>
+          <p>Go beyond vocabulary and grammar — explore Portuguese history, traditions, music, and literature as part of the learning experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-form-section section-tinted">
+    <div class="container">
+      <h2>Join the Waitlist</h2>
+      <p class="contact-form-intro">
+        Full program details — including schedules, fees, and registration — will be announced soon.
+        Leave your name and email below and we will reach out as soon as enrollment opens.
+      </p>
+
+      <form class="contact-form" action="#" method="post">
+        <div class="contact-form-row">
+          <div class="contact-form-group">
+            <label for="name" class="contact-form-label">Your Name *</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required />
+          </div>
+          <div class="contact-form-group">
+            <label for="email" class="contact-form-label">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
+          </div>
+        </div>
+
+        <div class="contact-form-group">
+          <label for="message" class="contact-form-label">Anything you'd like us to know?</label>
+          <textarea id="message" name="message" rows={4} placeholder="Your current Portuguese level, how you heard about us, or any questions you have..."></textarea>
+        </div>
+
+        <div class="contact-form-actions">
+          <button type="submit" class="btn-primary">Express Interest</button>
+          <p class="contact-form-note">* Required fields. We'll be in touch once details are confirmed.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</Layout>

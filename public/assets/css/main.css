@@ -201,23 +201,7 @@ header nav a:hover {
   background-color: rgba(20, 50, 33, 0.5);
 }
 
-header nav .nav-register a {
-  background:
-    radial-gradient(
-      circle at 50% 96%,
-      rgba(0, 200, 70, 0.5) 0%,
-      rgba(0, 130, 48, 0) 100%
-    ),
-    radial-gradient(
-      circle at 50% 100%,
-      rgba(0, 140, 50, 1) 1%,
-      rgba(0, 110, 40, 1) 58%,
-      rgba(0, 90, 33, 1) 100%
-    );
-  border: 1px solid rgba(255, 255, 255, 0.57);
-}
-
-body.home .nav-register {
+body.home .nav-home {
   display: none;
 }
 

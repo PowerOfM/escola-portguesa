@@ -4,13 +4,14 @@ import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
-  css?: string;
+  css?: string | string[];
   hideTitle?: boolean;
   heroImage?: string;
   navPage?: string;
 }
 
 const { title, css, hideTitle = false, heroImage, navPage } = Astro.props;
+const cssFiles = css ? (Array.isArray(css) ? css : [css]) : [];
 ---
 
 <!DOCTYPE html>
@@ -21,7 +22,7 @@ const { title, css, hideTitle = false, heroImage, navPage } = Astro.props;
     <title>{title} - Escola Portuguesa Nossa Senhora de Fátima - Vancouver, BC</title>
     <link rel="stylesheet" href="/assets/css/reset.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
-    {css && <link rel="stylesheet" href={`/assets/css/${css}.css`} />}
+    {cssFiles.map(c => <link rel="stylesheet" href={`/assets/css/${c}.css`} />)}
   </head>
   <body class={hideTitle ? 'home' : undefined}>
     <Header navPage={navPage} />

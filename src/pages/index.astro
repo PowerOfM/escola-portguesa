@@ -52,7 +52,7 @@ const curriculum = Object.entries(curriculumModules)
       <p class="home-curriculum-intro">{home.curriculumSection.intro}</p>
       <div class="home-curriculum-pills">
         {curriculum.map((level, index) => (
-          <a href={`/curriculum#${level.slug}`} class={`pill pill-${index + 1}`}>{level.title}</a>
+          <a href={`/children#${level.slug}`} class={`pill pill-${index + 1}`}>{level.title}</a>
         ))}
       </div>
     </div>
