@@ -4,20 +4,19 @@
   "tagline": "Preserving Portuguese language and culture in Vancouver for over 40 years. We provide quality Portuguese education for children from kindergarten through grade 12.",
   "founded": 1985,
   "address": {
-    "street": "123 Portuguese Way",
+    "street": "Notre Dame Regional Secondary School 2880 Venables St",
     "city": "Vancouver",
     "province": "BC",
-    "postal": "V6B 1A1",
+    "postal": "V5K 2T8",
     "country": "Canada"
   },
   "email": {
-    "general": "info@escolaportuguesayvr.ca",
-    "admissions": "admissions@escolaportuguesayvr.ca",
-    "payments": "escolaportuguesavancouver@gmail.com",
-    "students": "students@escolaportuguesayvr.ca"
+    "general": "escola@escolaportuguesavancouver.ca",
+    "admin": "admin@escolaportuguesavancouver.ca",
+    "payments": "escolaportuguesavancouver@gmail.com"
   },
   "officeHours": {
-    "saturday": "8:30 AM – 2:00 PM",
+    "saturday": "12:00 PM – 4:00 PM",
     "weekdays": "By appointment"
   },
   "schoolYear": {
