@@ -1,4 +1,4 @@
-# Escola Portuguesa — Agent Handoff Document
+# Escola Portuguesa
 
 ## Project Overview
 
