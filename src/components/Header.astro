@@ -15,11 +15,12 @@ const { navPage } = Astro.props;
 
     <nav>
       <ul>
+        <li class={`nav-home${navPage === 'home' ? ' nav-active' : ''}`}><a href="/">Home</a></li>
+        <li class={`nav-children${navPage === 'children' ? ' nav-active' : ''}`}><a href="/children/">Children</a></li>
+        <li class={`nav-adults${navPage === 'adults' ? ' nav-active' : ''}`}><a href="/adults/">Adults</a></li>
+        <li class={`nav-calendar${navPage === 'calendar' ? ' nav-active' : ''}`}><a href="/calendar/">2026 Calendar</a></li>
         <li class={`nav-about${navPage === 'about' ? ' nav-active' : ''}`}><a href="/about/">About</a></li>
-        <li class={`nav-curriculum${navPage === 'curriculum' ? ' nav-active' : ''}`}><a href="/curriculum/">Curriculum</a></li>
-        <li class={`nav-calendar${navPage === 'calendar' ? ' nav-active' : ''}`}><a href="/calendar/">Calendar</a></li>
         <li class={`nav-contact${navPage === 'contact' ? ' nav-active' : ''}`}><a href="/contact/">Contact</a></li>
-        <li class="nav-register"><a href="/contact/">Register</a></li>
       </ul>
     </nav>
 
