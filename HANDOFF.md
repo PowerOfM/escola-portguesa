@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-This is an **11ty (Eleventy)** static site for **Escola Portuguesa Nossa Senhora de Fátima**, a Portuguese language school in Vancouver, BC. The site is built with `.njk` (Nunjucks) templates and vanilla CSS — no frameworks, no preprocessors.
+This is an **AstroJS 5** static site for **Escola Portuguesa Nossa Senhora de Fátima**, a Portuguese language school in Vancouver, BC. The site uses Astro's component model with vanilla CSS — no CSS framework, no preprocessors.
 
-**Live dev server:** `http://localhost:8080` (watcher running in background, no need to build manually)
+**Live dev server:** `npm start` → `http://localhost:4321`
 
 ---
 
@@ -12,54 +12,140 @@ This is an **11ty (Eleventy)** static site for **Escola Portuguesa Nossa Senhora
 
 ```
 escola-portguesa/
-├── .eleventy.js          # Eleventy config — input: "pages", output: "build"
-├── assets/
-│   ├── css/
-│   │   ├── reset.css       # Modern CSS reset (Josh Comeau style)
-│   │   ├── main.css        # Global styles (design tokens, layout, header, footer, shared components)
-│   │   ├── home.css        # Styles for the home page (hero, school, curriculum, teachers sections)
-│   │   ├── curriculum.css  # Styles for the curriculum/fees page
-│   │   ├── about.css       # Styles for the about page
-│   │   ├── calendar.css    # Styles for the calendar page
-│   │   └── contact.css     # Styles for the contact page
-│   └── images/           # Downloaded from Figma (hero-bg.png, our-school.png, etc.)
-├── pages/                # Eleventy input directory
-│   ├── _includes/
-│   │   ├── layout.njk    # Base HTML layout (head, header, footer, main)
-│   │   ├── header.njk    # Site header with logo + nav
-│   │   └── footer.njk    # Site footer
-│   ├── index.njk         # Home page (uses hideTitle: true)
-│   ├── about.njk
-│   ├── calendar.njk
-│   ├── contact.njk
-│   └── curriculum.njk
-└── build/                # Eleventy output directory
+├── astro.config.mjs          # Astro config — output: "static"
+├── wrangler.toml             # Cloudflare Pages config — output dir: "dist"
+├── public/
+│   └── assets/               # Static files served as-is
+│       ├── css/
+│       │   ├── reset.css       # Modern CSS reset (Josh Comeau style)
+│       │   ├── main.css        # Global styles (tokens, layout, header, footer, shared)
+│       │   ├── home.css        # Home page sections
+│       │   ├── curriculum.css  # Curriculum/fees page
+│       │   ├── about.css       # About/teachers page
+│       │   ├── calendar.css    # Calendar page
+│       │   └── contact.css     # Contact/enrollment form
+│       ├── images/             # Hero images, section images, teacher photos
+│       └── logo-rooster.jpg    # Site logo
+├── src/
+│   ├── data/                 # JSON content files (imported directly in pages)
+│   │   ├── site.json           # School name, address, email, school year, class days
+│   │   ├── home.json           # Home page copy (hero, sections, CTA text)
+│   │   ├── about.json          # About page intro paragraphs + volunteers section
+│   │   ├── calendar.json       # Array of calendar events
+│   │   ├── curriculum/         # One JSON file per curriculum level (filename sets order)
+│   │   │   ├── 01-pre-escola.json
+│   │   │   ├── 02-a1-basico-inicial.json
+│   │   │   ├── 03-a1-basico-emergente.json
+│   │   │   ├── 04-a1-basico-aplicado.json
+│   │   │   ├── 05-a1-intermediario.json
+│   │   │   └── 06-a1-a2.json
+│   │   └── teachers/           # One JSON file per teacher (filename sets order)
+│   │       ├── 01-lina.json
+│   │       ├── 02-rosa-marques.json
+│   │       ├── 03-rosa-anita.json
+│   │       ├── 04-aurelia.json
+│   │       ├── 05-lisandra.json
+│   │       └── 06-manuela.json
+│   ├── layouts/
+│   │   └── Layout.astro        # Base HTML layout (head, header, main, footer)
+│   ├── components/
+│   │   ├── Header.astro        # Site header with logo + nav + hamburger
+│   │   ├── Footer.astro        # Site footer (brand, quick links, contact)
+│   │   └── CTA.astro           # "Ready to Begin" CTA section (home + curriculum)
+│   └── pages/
+│       ├── index.astro         # Home page
+│       ├── about.astro         # Our School / Teachers page
+│       ├── curriculum.astro    # Curriculum levels + fees
+│       ├── calendar.astro      # Important dates
+│       └── contact.astro       # Contact info + enrollment form
+└── dist/                     # Astro build output (gitignored)
 ```
+
+---
+
+## Scripts
+
+| Command | Action |
+|---|---|
+| `npm start` | Start dev server at `http://localhost:4321` |
+| `npm run build` | Build static site to `dist/` |
+| `npm run preview` | Preview the build locally |
+| `npm run deploy` | Deploy `dist/` to Cloudflare Pages via wrangler |
+
+---
+
+## How Data Works
+
+Data is not processed by a build system — it is imported directly as ES modules in each `.astro` file's frontmatter.
+
+**Simple JSON files** (site, home, about, calendar) are imported with a named import:
+
+```js
+import site from '../data/site.json';
+import calendar from '../data/calendar.json';
+```
+
+**Directory collections** (curriculum, teachers) are loaded with `import.meta.glob` and sorted by filename (the numeric prefix controls display order):
+
+```js
+const curriculumModules = import.meta.glob('../data/curriculum/*.json', { eager: true });
+const curriculum = Object.entries(curriculumModules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([path, mod]) => ({
+    slug: path.split('/').pop().replace('.json', ''), // e.g. "01-pre-escola"
+    ...mod.default,
+  }));
+```
+
+The `slug` derived from the filename is used as the tab `data-tab`/`data-panel` attribute on the curriculum page and as the URL hash in home page curriculum pills (e.g. `/curriculum#01-pre-escola`).
 
 ---
 
 ## Key Files & Their Roles
 
-### `pages/_includes/layout.njk`
-- Base template for all pages
-- Loads `reset.css` then `main.css`
-- Conditionally adds `class="home"` to `<body>` when `hideTitle: true` (used by index page to hide HOME/REGISTER nav links)
-- Conditionally renders a `.page-title` section with `<h1>` unless `hideTitle` is set
+### `src/layouts/Layout.astro`
 
-### `pages/_includes/header.njk`
-- Absolutely positioned header with a 10px green bar above it
-- Logo group: rooster image + school name in Crimson Pro font, white background with negative left margin for overlap effect
-- Nav: frosted glass pill (`backdrop-filter: blur(4px)`, `rgba(20,50,33,0.25)` background)
-- Nav links use Crimson Pro, uppercase, with rounded hover states
-- "Register" link has solid primary background
+Base template for all pages. Props:
 
-### `pages/_includes/footer.njk`
-- Three-column layout: brand/description, Quick Links, Contact Us (with SVG icons)
-- Copyright bar at bottom with top border
+| Prop | Type | Effect |
+|---|---|---|
+| `title` | string | `<title>` tag + page heading |
+| `css` | string? | Loads `/assets/css/{css}.css` (page-specific styles) |
+| `hideTitle` | boolean | Adds `class="home"` to `<body>`, suppresses the page heading block |
+| `heroImage` | string? | Renders a `.page-hero` section with background image instead of plain heading |
+| `navPage` | string? | Passed to `<Header>` to highlight the active nav link |
 
-### `pages/index.njk`
-- Home page with `hideTitle: true` in frontmatter
-- Sections: hero, school, curriculum, teachers, CTA
+### `src/components/Header.astro`
+
+Absolutely positioned header with a 10px green bar above it. Receives a `navPage` prop and applies `nav-active` class to the matching `<li>`. Includes client-side JavaScript for the mobile hamburger menu (toggle on click, close on outside click or Escape key).
+
+### `src/components/Footer.astro`
+
+Three-column layout: brand/tagline, Quick Links, Contact Us (with SVG icons). Imports `site.json` directly.
+
+### `src/components/CTA.astro`
+
+Full-width CTA section with background image overlay. Imports `home.json` for heading/body text. Used on both the home and curriculum pages.
+
+### `src/pages/index.astro`
+
+Home page. Uses `hideTitle={true}` — no page-hero or page-title block is rendered, and `body.home` CSS rules apply (hides HOME and REGISTER nav links in header). The hero heading contains HTML (`<br>`), rendered with Astro's `set:html` directive.
+
+### `src/pages/about.astro`
+
+"Our School" page. Renders the teachers list from `src/data/teachers/` and the intro/volunteers sections from `about.json`. The teachers section has `id="our-teachers"` so that `/about#our-teachers` anchor links from the footer and home page work correctly.
+
+### `src/pages/curriculum.astro`
+
+Curriculum levels rendered as a tabbed interface. Client-side JavaScript toggles the visible panel by matching `data-tab` to `data-panel`. Below the tabs: feature info cards and school fees pricing with payment options. Ends with the CTA component.
+
+### `src/pages/calendar.astro`
+
+School year info cards followed by a timeline list of events. Calendar event descriptions may contain HTML (e.g. links) and are rendered with `set:html`.
+
+### `src/pages/contact.astro`
+
+Contact info cards and an enrollment inquiry form with a segmented radio control (New/Returning Student), input fields, and a curriculum level `<select>` populated from the curriculum data.
 
 ---
 
@@ -82,7 +168,7 @@ escola-portguesa/
 ### Spacing & Layout
 - Container padding: `90px` (responsive down to `24px`)
 - Max width: `1512px`
-- Border radius: `15px` (used on cards, buttons, pills, images)
+- Border radius: `15px` (cards, buttons, pills, images)
 
 ### Buttons
 - **`.btn-primary`**: Green radial gradient (`#48d643` → `#42af60` → `#31bb68`), white text, 24px bold, rounded, subtle hover lift
@@ -92,9 +178,9 @@ escola-portguesa/
 
 ## Design Source
 
-Design was implemented from **Figma**: `https://www.figma.com/design/fX1DfHBau7o4rogZBaLMPo/Untitled?node-id=86-129&m=dev`
+Design implemented from **Figma**: `https://www.figma.com/design/fX1DfHBau7o4rogZBaLMPo/Untitled?node-id=86-129&m=dev`
 
-Images were extracted from Figma using `download_figma_images` and saved to `assets/images/`.
+Images were extracted from Figma and saved to `public/assets/images/`.
 
 ---
 
@@ -106,34 +192,38 @@ Images were extracted from Figma using `download_figma_images` and saved to `ass
 
 3. **Curriculum pills**: 6 pills in a grid, each with incrementing white opacity backgrounds (`0.4` → `0.9`). First pill has a special red-tinted text color (`#fef2f2`).
 
-4. **Body class for home page**: `layout.njk` adds `class="home"` to `<body>` when `hideTitle` is true. CSS uses `body.home .nav-home, body.home .nav-register { display: none; }` to hide those links on the home page.
+4. **Body class for home page**: `Layout.astro` adds `class="home"` to `<body>` when `hideTitle` is true. CSS uses `body.home .nav-home, body.home .nav-register { display: none; }` to hide those links on the home page.
 
-5. **Footer on white background**: Footer was changed from green to white. Text colors adjusted from `--gray-500` to `--gray-400` for contrast. Border-top on `.footer-bottom` uses `rgba(20,50,33,0.1)`.
+5. **Footer on white background**: Footer uses white background. Text colors use `--gray-400` for contrast. Border-top on `.footer-bottom` uses `rgba(20,50,33,0.1)`.
 
 6. **Teachers image**: Takes 60% of the grid row (`grid-template-columns: 40% 60%`). Image has `height: 465px` and `object-fit: cover`.
 
-7. **Responsive breakpoints**: `1200px` (tablet — stacks grids, 3-col pills) and `768px` (mobile — 2-col pills, hidden nav, smaller type).
+7. **Responsive breakpoints**: `1200px` (tablet — stacks grids, 3-col pills) and `768px` (mobile — 2-col pills, hamburger nav, smaller type).
 
-8. **Pricing cards (curriculum page)**: All three cards are intentionally identical — no "featured" treatment on the middle one. Families are not choosing a number of children based on price, so no card should be visually elevated. The `.fees-pricing-card--featured` rule was removed.
+8. **Pricing cards (curriculum page)**: All three cards are intentionally identical — no "featured" treatment on the middle one. Families are not choosing based on price tier, so no card should be visually elevated.
 
-9. **Badge sizing in flex columns**: `display: inline-block` alone does not shrink an element to fit its content when it's a direct child of a flex column — the flex algorithm stretches it to the cross axis. Use `align-self: flex-start` alongside `inline-block` (or switch to `width: fit-content`) to make pill/badge elements hug their text.
+9. **Badge sizing in flex columns**: `display: inline-block` alone does not shrink an element to fit its content when it's a direct flex child — use `align-self: flex-start` or `width: fit-content`.
+
+10. **`set:html` directive**: Used wherever content from JSON may contain HTML markup — the home hero heading (`<br>` tag), and calendar event descriptions (which can contain `<a>` links).
+
+11. **Curriculum/teachers ordering**: Display order is controlled entirely by the numeric filename prefix (`01-`, `02-`, etc.). `import.meta.glob` returns files in an unspecified order, so results are always `.sort()`ed by path before use.
 
 ---
 
 ## How to Work With This Project
 
-- **Edit global styles**: `assets/css/main.css` — design tokens, shared components, header/footer
-- **Edit page-specific styles**: `assets/css/<page>.css` (e.g. `home.css`, `curriculum.css`)
-- **Edit home page**: `pages/index.njk`
-- **Edit other pages**: `pages/*.njk`
-- **Edit layout/header/footer**: `pages/_includes/*.njk`
-- **Add images**: Place in `assets/images/`, reference as `/assets/images/filename.png`
-- **No build step needed**: Watcher auto-rebuilds on save
+- **Edit global styles**: `public/assets/css/main.css`
+- **Edit page-specific styles**: `public/assets/css/<page>.css`
+- **Edit page content/copy**: `src/data/*.json`
+- **Add/edit a curriculum level**: Edit or add a file in `src/data/curriculum/` (numeric prefix controls order)
+- **Add/edit a teacher**: Edit or add a file in `src/data/teachers/` (numeric prefix controls order)
+- **Edit page structure**: `src/pages/<page>.astro`
+- **Edit header/footer/layout**: `src/components/` or `src/layouts/Layout.astro`
+- **Add images**: Place in `public/assets/images/`, reference as `/assets/images/filename.png`
 
 ---
 
 ## Known Issues / Open Items
 
-- The teachers image may overflow its container at certain viewport widths — the `height: 465px` with `object-fit: cover` on a 60%-width column can cause overflow. May need `width: 100%` or `overflow: hidden` on the wrapper.
-- Navigation is completely hidden on mobile (`display: none` at 768px) — a hamburger menu was not implemented.
-- The header nav doesn't highlight the current page.
+- The teachers image may overflow its container at certain viewport widths — the `height: 465px` with `object-fit: cover` on a 60%-width column can cause overflow on mid-range viewports.
+- The enrollment form posts to `action="#"` — no backend or form handler is wired up yet.
