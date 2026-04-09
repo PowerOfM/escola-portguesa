@@ -1,10 +1,14 @@
+---
+import home from '../data/home.json';
+---
+
 <section class="home-cta">
   <div class="home-cta-bg">
     <img src="/assets/images/cta-bg.png" alt="" />
   </div>
   <div class="home-cta-content">
-    <h2>{{ home.cta.heading }}</h2>
-    <p>{{ home.cta.body }}</p>
+    <h2>{home.cta.heading}</h2>
+    <p>{home.cta.body}</p>
     <a href="/contact" class="btn-primary">REGISTER NOW</a>
   </div>
 </section>

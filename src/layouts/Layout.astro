@@ -1,0 +1,58 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  css?: string;
+  hideTitle?: boolean;
+  heroImage?: string;
+  navPage?: string;
+}
+
+const { title, css, hideTitle = false, heroImage, navPage } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} - Escola Portuguesa Nossa Senhora de Fátima - Vancouver, BC</title>
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    {css && <link rel="stylesheet" href={`/assets/css/${css}.css`} />}
+  </head>
+  <body class={hideTitle ? 'home' : undefined}>
+    <Header navPage={navPage} />
+
+    {heroImage ? (
+      <Fragment>
+        <section class="page-hero">
+          <div class="page-hero-bg">
+            <img src={heroImage} alt="" />
+          </div>
+          <div class="page-hero-content">
+            <h1>{title}</h1>
+          </div>
+        </section>
+        <div class="page-divider"></div>
+      </Fragment>
+    ) : !hideTitle ? (
+      <Fragment>
+        <section class="page-title">
+          <div class="container">
+            <h1>{title}</h1>
+          </div>
+        </section>
+        <div class="page-divider"></div>
+      </Fragment>
+    ) : null}
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

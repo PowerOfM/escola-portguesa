@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import about from '../data/about.json';
+
+const teacherModules = import.meta.glob('../data/teachers/*.json', { eager: true });
+const teachers = Object.entries(teacherModules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([_, mod]: [string, any]) => mod.default);
+---
+
+<Layout
+  title="Our School"
+  css="about"
+  heroImage="/assets/images/about-hero.png"
+  navPage="about"
+>
+  <section class="two-column">
+    <div class="container two-column-grid">
+      <div class="two-column-image">
+        <img src="/assets/images/about-intro.png" alt="Escola Portuguesa" />
+      </div>
+      <div class="two-column-content">
+        {about.intro.map((paragraph: string) => (
+          <p>{paragraph}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="page-divider"></div>
+
+  <section class="about-teachers" id="our-teachers">
+    <div class="container">
+      <h2>Our Teachers</h2>
+
+      <div class="about-teachers-list">
+        {teachers.map((teacher: any) => (
+          <article class="teacher-card">
+            <div class="teacher-card-image">
+              {teacher.image ? (
+                <img src={teacher.image} alt={teacher.name} />
+              ) : (
+                <div class="teacher-card-image-placeholder"></div>
+              )}
+            </div>
+            <div class="teacher-card-text">
+              <h3>{teacher.name}</h3>
+              {teacher.bio.map((paragraph: string) => (
+                <p>{paragraph}</p>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="about-volunteers section-tinted">
+    <div class="container">
+      <h2>{about.volunteers.heading}</h2>
+      {about.volunteers.body.map((paragraph: string) => (
+        <p>{paragraph}</p>
+      ))}
+    </div>
+  </section>
+</Layout>
