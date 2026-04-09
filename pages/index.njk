@@ -43,8 +43,8 @@ css: home
     <h2>{{ home.curriculumSection.heading }}</h2>
     <p class="home-curriculum-intro">{{ home.curriculumSection.intro }}</p>
     <div class="home-curriculum-pills">
-      {% for slug, level in curriculum %}
-        <a href="/curriculum#{{ slug }}" class="pill pill-{{ loop.index }}">{{ level.title }}</a>
+      {% for level in curriculum | sortByOrder %}
+        <a href="/curriculum#{{ level.slug }}" class="pill pill-{{ loop.index }}">{{ level.title }}</a>
       {% endfor %}
     </div>
   </div>

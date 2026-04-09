@@ -26,7 +26,7 @@ navPage: about
     <h2>Our Teachers</h2>
 
     <div class="about-teachers-list">
-      {% for slug, teacher in teachers %}
+      {% for teacher in teachers | sortByOrder %}
       <article class="teacher-card">
         <div class="teacher-card-image">
           {% if teacher.image %}

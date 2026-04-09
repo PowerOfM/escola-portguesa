@@ -9,13 +9,13 @@ navPage: curriculum
 <section class="curriculum-levels">
   <div class="container">
     <div class="curriculum-tabs">
-      {% for slug, level in curriculum %}
-        <button class="curriculum-tab{% if loop.first %} curriculum-tab--active{% endif %}" data-tab="{{ slug }}">{{ level.title }}</button>
+      {% for level in curriculum | sortByOrder %}
+        <button class="curriculum-tab{% if loop.first %} curriculum-tab--active{% endif %}" data-tab="{{ level.slug }}">{{ level.title }}</button>
       {% endfor %}
     </div>
 
-    {% for slug, level in curriculum %}
-      <div class="curriculum-detail{% if loop.first %} is-visible{% endif %}" data-panel="{{ slug }}">
+    {% for level in curriculum | sortByOrder %}
+      <div class="curriculum-detail{% if loop.first %} is-visible{% endif %}" data-panel="{{ level.slug }}">
         <div class="curriculum-detail-header">
           <div>
             <h2>{{ level.title }}</h2>
