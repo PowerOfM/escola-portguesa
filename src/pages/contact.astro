@@ -9,6 +9,8 @@ const curriculum = Object.entries(curriculumModules)
     slug: path.split('/').pop()!.replace('.json', ''),
     ...mod.default,
   }));
+
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
 ---
 
 <Layout
@@ -58,7 +60,9 @@ const curriculum = Object.entries(curriculumModules)
       <h2>Enrollment Inquiry Form</h2>
       <p class="contact-form-intro">Fill out this form to start the enrollment process or ask questions about our programs.</p>
 
-      <form class="contact-form" action="#" method="post">
+      <form class="contact-form" action="/api/contact" method="post">
+        <!-- Honeypot: hidden from humans, filled by bots -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
         <div class="contact-form-group">
           <label class="contact-form-label">Enrollment Type</label>
           <div class="contact-form-radio-group">
@@ -104,6 +108,8 @@ const curriculum = Object.entries(curriculumModules)
                 <option value={level.slug}>{level.title}</option>
               ))}
             </select>
+            <!-- Populated by JS so the function receives the human-readable title -->
+            <input type="hidden" id="grade-title" name="grade-title" />
           </div>
         </fieldset>
 
@@ -113,6 +119,7 @@ const curriculum = Object.entries(curriculumModules)
         </div>
 
         <div class="contact-form-actions">
+          <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div>
           <button type="submit" class="btn-primary">Submit Enrollment Inquiry</button>
           <p class="contact-form-note">* Required fields. We'll contact you within 2 business days.</p>
         </div>
@@ -120,3 +127,74 @@ const curriculum = Object.entries(curriculumModules)
     </div>
   </section>
 </Layout>
+
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<script>
+  const gradeSelect = document.getElementById('grade-level') as HTMLSelectElement;
+  const gradeTitleInput = document.getElementById('grade-title') as HTMLInputElement;
+  gradeSelect.addEventListener('change', () => {
+    gradeTitleInput.value = gradeSelect.options[gradeSelect.selectedIndex].text;
+  });
+
+  const form = document.querySelector('.contact-form') as HTMLFormElement;
+  const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+  const ORIGINAL_BTN_TEXT = submitBtn.textContent ?? 'Submit Enrollment Inquiry';
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const prevError = form.querySelector('.form-error');
+    if (prevError) prevError.remove();
+
+    const formData = new FormData(form);
+    const childName = (formData.get('child-name') as string) || 'your child';
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch('/api/contact', { method: 'POST', body: formData });
+      const data = await res.json();
+
+      if (data.success) {
+        const container = document.querySelector('.contact-form-section .container') as HTMLElement;
+        const heading = container.querySelector('h2');
+        const intro = container.querySelector('.contact-form-intro');
+        if (heading) heading.remove();
+        if (intro) intro.remove();
+
+        const successDiv = document.createElement('div');
+        successDiv.className = 'form-success';
+        successDiv.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <h2>Inquiry Received!</h2>
+          <p>Thank you for your enrollment inquiry. We'll be in touch within 2 business days.</p>
+          <p>If you need to reach us sooner, email <a href="mailto:admissions@escolaportuguesayvr.ca">admissions@escolaportuguesayvr.ca</a>.</p>
+        `;
+        // Insert child name safely (no XSS)
+        const p = successDiv.querySelectorAll('p')[0];
+        p.innerHTML = 'Thank you for your enrollment inquiry for <strong></strong>. We\'ll be in touch within 2 business days.';
+        (p.querySelector('strong') as HTMLElement).textContent = childName;
+
+        form.replaceWith(successDiv);
+      } else {
+        showError(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      showError('Network error. Please check your connection and try again.');
+    }
+  });
+
+  function showError(msg: string) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = ORIGINAL_BTN_TEXT;
+    if ((window as any).turnstile) (window as any).turnstile.reset();
+
+    const errorP = document.createElement('p');
+    errorP.className = 'form-error';
+    errorP.textContent = msg;
+    form.querySelector('.contact-form-actions')!.prepend(errorP);
+    errorP.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+</script>
