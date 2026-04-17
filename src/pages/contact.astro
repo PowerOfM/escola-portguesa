@@ -1,20 +1,22 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import site from '../data/site.json';
+import Layout from "../layouts/Layout.astro";
+import site from "../data/site.json";
 
-const curriculumModules = import.meta.glob('../data/curriculum/*.json', { eager: true });
+const curriculumModules = import.meta.glob("../data/curriculum/*.json", {
+  eager: true,
+});
 const curriculum = Object.entries(curriculumModules)
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([path, mod]: [string, any]) => ({
-    slug: path.split('/').pop()!.replace('.json', ''),
+    slug: path.split("/").pop()!.replace(".json", ""),
     ...mod.default,
   }));
 ---
 
 <Layout
-  title="Contact &amp; Registration"
+  title="Contact & Registration"
   css="contact"
-  heroImage="/assets/images/curriculum-hero.png"
+  heroImage="/assets/images/contact-hero.jpeg"
   navPage="contact"
 >
   <section class="contact-info">
@@ -25,13 +27,26 @@ const curriculum = Object.entries(curriculumModules)
           <div class="info-card-header">
             <h3>Address</h3>
             <div class="info-card-icon info-card-icon--green">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00A63E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#00A63E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                ></path><circle cx="12" cy="10" r="3"></circle></svg
+              >
             </div>
           </div>
           <p>
             {site.address.name}<br />
             {site.address.street}<br />
-            {site.address.city}, {site.address.province} {site.address.postal}<br />
+            {site.address.city}, {site.address.province}
+            {site.address.postal}<br />
             {site.address.country}
           </p>
         </div>
@@ -40,13 +55,30 @@ const curriculum = Object.entries(curriculumModules)
           <div class="info-card-header">
             <h3>Email</h3>
             <div class="info-card-icon info-card-icon--yellow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D08700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#D08700"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
+                  d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
+              >
             </div>
           </div>
           <p>
-            <strong>General:</strong> <a href={`mailto:${site.email.general}`}>{site.email.general}</a><br />
-            <strong>Admin:</strong> <a href={`mailto:${site.email.admin}`}>{site.email.admin}</a><br />
-            <strong>Payments:</strong> <a href={`mailto:${site.email.payments}`}>{site.email.payments}</a><br />
+            <strong>General:</strong>
+            <a href={`mailto:${site.email.general}`}>{site.email.general}</a><br
+            />
+            <strong>Admin:</strong>
+            <a href={`mailto:${site.email.admin}`}>{site.email.admin}</a><br />
+            <strong>Payments:</strong>
+            <a href={`mailto:${site.email.payments}`}>{site.email.payments}</a
+            ><br />
           </p>
         </div>
       </div>
@@ -56,7 +88,10 @@ const curriculum = Object.entries(curriculumModules)
   <section class="contact-form-section section-tinted">
     <div class="container">
       <h2>Enrollment Inquiry Form</h2>
-      <p class="contact-form-intro">Fill out this form to start the enrollment process or ask questions about our programs.</p>
+      <p class="contact-form-intro">
+        Fill out this form to start the enrollment process or ask questions
+        about our programs.
+      </p>
 
       <form class="contact-form" action="#" method="post">
         <div class="contact-form-group">
@@ -75,12 +110,27 @@ const curriculum = Object.entries(curriculumModules)
 
         <div class="contact-form-row">
           <div class="contact-form-group">
-            <label for="parent-name" class="contact-form-label">Parent/Guardian Name *</label>
-            <input type="text" id="parent-name" name="parent-name" placeholder="Your full name" required />
+            <label for="parent-name" class="contact-form-label"
+              >Parent/Guardian Name *</label
+            >
+            <input
+              type="text"
+              id="parent-name"
+              name="parent-name"
+              placeholder="Your full name"
+              required
+            />
           </div>
           <div class="contact-form-group">
-            <label for="email" class="contact-form-label">Email Address *</label>
-            <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
+            <label for="email" class="contact-form-label">Email Address *</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="your.email@example.com"
+              required
+            />
           </div>
         </div>
 
@@ -88,33 +138,66 @@ const curriculum = Object.entries(curriculumModules)
           <legend>Student Information</legend>
           <div class="contact-form-row">
             <div class="contact-form-group">
-              <label for="child-name" class="contact-form-label">Child's Name *</label>
-              <input type="text" id="child-name" name="child-name" placeholder="Child's full name" required />
+              <label for="child-name" class="contact-form-label"
+                >Child's Name *</label
+              >
+              <input
+                type="text"
+                id="child-name"
+                name="child-name"
+                placeholder="Child's full name"
+                required
+              />
             </div>
             <div class="contact-form-group">
-              <label for="child-age" class="contact-form-label">Child's Age *</label>
-              <input type="number" id="child-age" name="child-age" placeholder="Age" min="3" max="18" required />
+              <label for="child-age" class="contact-form-label"
+                >Child's Age *</label
+              >
+              <input
+                type="number"
+                id="child-age"
+                name="child-age"
+                placeholder="Age"
+                min="3"
+                max="18"
+                required
+              />
             </div>
           </div>
           <div class="contact-form-group">
-            <label for="grade-level" class="contact-form-label">Desired Grade Level *</label>
+            <label for="grade-level" class="contact-form-label"
+              >Desired Grade Level *</label
+            >
             <select id="grade-level" name="grade-level" required>
               <option value="" disabled selected>Select a grade level</option>
-              {curriculum.map((level) => (
-                <option value={level.slug}>{level.title}</option>
-              ))}
+              {
+                curriculum.map((level) => (
+                  <option value={level.slug}>{level.title}</option>
+                ))
+              }
             </select>
           </div>
         </fieldset>
 
         <div class="contact-form-group">
-          <label for="message" class="contact-form-label">Questions or Comments</label>
-          <textarea id="message" name="message" rows={5} placeholder="Tell us about your child's Portuguese language experience, any questions you have, or special considerations..."></textarea>
+          <label for="message" class="contact-form-label"
+            >Questions or Comments</label
+          >
+          <textarea
+            id="message"
+            name="message"
+            rows={5}
+            placeholder="Tell us about your child's Portuguese language experience, any questions you have, or special considerations..."
+          ></textarea>
         </div>
 
         <div class="contact-form-actions">
-          <button type="submit" class="btn-primary">Submit Enrollment Inquiry</button>
-          <p class="contact-form-note">* Required fields. We'll contact you within 2 business days.</p>
+          <button type="submit" class="btn-primary"
+            >Submit Enrollment Inquiry</button
+          >
+          <p class="contact-form-note">
+            * Required fields. We'll contact you within 2 business days.
+          </p>
         </div>
       </form>
     </div>

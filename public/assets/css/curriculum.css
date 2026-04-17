@@ -14,44 +14,28 @@
   padding: 32px 0 0;
 }
 
-.curriculum-tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 32px;
-}
-
-.curriculum-tab {
-  padding: 12px 25px;
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  transition:
-    background-color 0.2s,
-    color 0.2s;
-  background-color: transparent;
-  color: var(--primary);
-}
-
-.curriculum-tab:hover {
-  background-color: rgba(20, 50, 33, 0.1);
-}
-
-.curriculum-tab--active {
-  background-color: var(--primary);
-  color: var(--white);
-}
-
 .curriculum-detail {
-  display: none;
-  background-color: var(--white);
-  border: 1px solid rgba(20, 50, 33, 0.1);
-  border-radius: 16px;
-  padding: 48px;
+  display: block;
+  /*background-color: var(--white);*/
+  /*border: 1px solid rgba(20, 50, 33, 0.1);*/
+  /*border-radius: 16px;*/
+  padding: 50px 0;
+  /*margin-bottom: 32px;*/
 }
 
-.curriculum-detail.is-visible {
+/* Photo collage */
+.curriculum-collage {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.curriculum-collage img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   display: block;
 }
 
@@ -73,81 +57,52 @@
   color: var(--gray-400);
 }
 
-.curriculum-detail-intro {
-  font-size: 20px;
-  line-height: 1.63;
+.curriculum-detail-body {
   color: #364153;
-  margin-bottom: 32px;
 }
 
-.curriculum-detail-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
+.curriculum-detail-body p {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 20px;
 }
 
-.curriculum-detail-column h3 {
+.curriculum-detail-body ul,
+.curriculum-detail-body ol {
+  padding-left: 24px;
+  margin-bottom: 20px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 8px;
+}
+
+.curriculum-detail-body ul {
+  list-style: disc;
+}
+
+.curriculum-detail-body ol {
+  list-style: decimal;
+}
+
+.curriculum-detail-body h3 {
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 20px;
-  line-height: 1.6;
   color: #101828;
-  margin-bottom: 16px;
+  margin: 28px 0 12px;
 }
 
-.curriculum-detail-column h3 svg {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
+.curriculum-detail-body h4 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 17px;
+  color: #101828;
+  margin: 20px 0 8px;
 }
 
-.curriculum-checklist {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.curriculum-checklist li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  color: #364153;
-}
-
-.curriculum-checklist li::before {
-  content: "";
-  display: block;
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-  margin-top: 2px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2300A63E' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14'/%3E%3Cpolyline points='22 4 12 14.01 9 11.01'/%3E%3C/svg%3E");
-  background-size: contain;
-}
-
-.curriculum-bullet-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.curriculum-bullet-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  color: #364153;
-}
-
-.curriculum-bullet-list li::before {
-  content: "•";
-  color: #e7000b;
-  font-weight: 700;
-  flex-shrink: 0;
+.curriculum-detail-body strong {
+  font-weight: 600;
+  color: #101828;
 }
 
 /* School fees */
@@ -270,10 +225,6 @@
     gap: 24px;
   }
 
-  .curriculum-detail-columns {
-    grid-template-columns: 1fr;
-  }
-
   .curriculum-fees-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -289,17 +240,12 @@
     padding: 40px 0 0;
   }
 
-  .curriculum-tabs {
-    flex-wrap: wrap;
-  }
-
-  .curriculum-tab {
-    padding: 10px 16px;
-    font-size: 14px;
+  .curriculum-collage {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .curriculum-detail {
-    padding: 24px;
+    padding: 25px 0;
   }
 
   .curriculum-detail-header h2 {

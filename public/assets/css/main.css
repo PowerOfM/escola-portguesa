@@ -36,7 +36,7 @@ h3 {
 
 h1 {
   font-size: 64px;
-  line-height: 0.98;
+  line-height: 1;
 }
 
 h2 {
@@ -114,8 +114,8 @@ img {
   height: 100%;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0) 53%,
-    rgba(0, 0, 0, 0.5) 100%
+    rgba(0, 0, 0, 0) 40%,
+    rgba(0, 0, 0, 0.65) 100%
   );
 }
 
@@ -433,12 +433,12 @@ footer {
 
 /* Info card (shared by curriculum, calendar, contact pages) */
 .info-card {
-  border: 1px solid var(--primary);
   border-radius: var(--border-radius);
   padding: 25px;
-  background-color: var(--white);
+  background-color: #eff0f0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 15px;
 }
 
@@ -489,7 +489,7 @@ footer {
   min-height: 528px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /*justify-content: center;*/
   overflow: hidden;
 }
 

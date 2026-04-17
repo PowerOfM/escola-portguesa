@@ -1,5 +1,5 @@
 ---
-import site from '../data/site.json';
+import site from "../data/site.json";
 ---
 
 <footer>
@@ -7,7 +7,10 @@ import site from '../data/site.json';
     <div class="footer-main">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="/assets/images/logo-footer.png" alt="Escola Portuguesa Logo" />
+          <img
+            src="/assets/images/logo-footer.png"
+            alt="Escola Portuguesa Logo"
+          />
           <span>{site.name}</span>
         </div>
         <p>{site.tagline}</p>
@@ -40,13 +43,14 @@ import site from '../data/site.json';
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
-                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                <circle cx="12" cy="10" r="3" />
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
               </svg>
               <span>
                 {site.address.name}<br />
                 {site.address.street}<br />
-                {site.address.city}, {site.address.province} {site.address.postal}
+                {site.address.city}, {site.address.province}
+                {site.address.postal}
               </span>
             </div>
             <div class="footer-contact-item">
@@ -61,8 +65,8 @@ import site from '../data/site.json';
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
-                <rect width="20" height="16" x="2" y="4" rx="2" />
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
               </svg>
               <span>{site.email.general}</span>
             </div>
@@ -72,7 +76,12 @@ import site from '../data/site.json';
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2026 {site.shortName}. All rights reserved.</p>
+      <p>
+        &copy; 2026 {site.name}. All rights reserved. <a
+          href="https://mowlavi.ca"
+          target="_blank">Website designed by Mesbah Mowlavi</a
+        >.
+      </p>
     </div>
   </div>
 </footer>

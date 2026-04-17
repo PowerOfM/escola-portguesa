@@ -1,114 +1,96 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import CTA from '../components/CTA.astro';
-import site from '../data/site.json';
+import Layout from "../layouts/Layout.astro";
+import CTA from "../components/CTA.astro";
+import site from "../data/site.json";
 
-const curriculumModules = import.meta.glob('../data/curriculum/*.json', { eager: true });
+const curriculumModules = import.meta.glob("../data/curriculum/*.md", {
+  eager: true,
+});
 const curriculum = Object.entries(curriculumModules)
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([path, mod]: [string, any]) => ({
-    slug: path.split('/').pop()!.replace('.json', ''),
-    ...mod.default,
+    slug: path.split("/").pop()!.replace(".md", ""),
+    ...mod.frontmatter,
+    compiledContent: mod.compiledContent,
   }));
+
+const separatorModules = import.meta.glob(
+  "../../public/assets/separators/*.{jpeg,jpg,png,webp}",
+);
+const separatorUrls = Object.keys(separatorModules).map((k) =>
+  k.replace(/^.*\/public/, ""),
+);
 ---
 
 <Layout
   title="Children's Classes"
   css="curriculum"
-  heroImage="/assets/images/curriculum-hero.png"
+  heroImage="/assets/images/curriculum-hero.jpeg"
   navPage="children"
 >
   <section class="curriculum-levels">
     <div class="container">
-      <div class="curriculum-tabs">
-        {curriculum.map((level, index) => (
-          <button
-            class={`curriculum-tab${index === 0 ? ' curriculum-tab--active' : ''}`}
-            data-tab={level.slug}
-          >
-            {level.title}
-          </button>
-        ))}
-      </div>
-
-      {curriculum.map((level, index) => (
-        <div
-          class={`curriculum-detail${index === 0 ? ' is-visible' : ''}`}
-          data-panel={level.slug}
-        >
-          <div class="curriculum-detail-header">
-            <div>
-              <h2>{level.title}</h2>
+      {
+        curriculum.map((level, i) => (
+          <>
+            <div class="curriculum-detail" id={level.slug}>
+              <div class="curriculum-detail-header">
+                <div>
+                  <h2>{level.title}</h2>
+                </div>
+              </div>
+              <div
+                class="curriculum-detail-body"
+                set:html={level.compiledContent()}
+              />
             </div>
-          </div>
-          <p class="curriculum-detail-intro">{level.intro}</p>
-          <div class="curriculum-detail-columns">
-            <div class="curriculum-detail-column">
-              <h3>Learning Objectives</h3>
-              <ul class="curriculum-checklist">
-                {level.objectives.map((item: string) => (
-                  <li>{item}</li>
+            {separatorUrls.length > 0 && i < curriculum.length - 1 && (
+              <div class="curriculum-collage">
+                {[0, 1, 2, 3].map((j) => (
+                  <img
+                    src={separatorUrls[(i * 4 + j) % separatorUrls.length]}
+                    alt=""
+                  />
                 ))}
-              </ul>
-            </div>
-            <div class="curriculum-detail-column">
-              <h3>Topics Covered</h3>
-              <ul class="curriculum-bullet-list">
-                {level.topics.map((item: string) => (
-                  <li>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      ))}
+              </div>
+            )}
+          </>
+        ))
+      }
     </div>
   </section>
-
-  <script>
-    const tabs = document.querySelectorAll('.curriculum-tab');
-    const details = document.querySelectorAll('.curriculum-detail');
-
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        tabs.forEach(function (t) { t.classList.remove('curriculum-tab--active'); });
-        details.forEach(function (d) { d.classList.remove('is-visible'); });
-
-        tab.classList.add('curriculum-tab--active');
-        document.querySelector('.curriculum-detail[data-panel="' + (tab as HTMLElement).dataset.tab + '"]')!.classList.add('is-visible');
-      });
-    });
-  </script>
 
   <section class="curriculum-intro">
     <div class="container">
       <div class="curriculum-features">
         <div class="info-card">
           <div class="info-card-header">
-            <h3>Standards-Aligned</h3>
-            <div class="info-card-icon info-card-icon--green">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00A63E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            </div>
+            <h3>Proficiency Certification</h3>
           </div>
-          <p>Our curriculum follows Portuguese Ministry of Education standards while being adapted for students in Canada.</p>
+          <p>
+            The Camões Institute (Embassy of Portugal) in Canada uses QuaREPE to
+            align language proficiency levels with competence blocks, enabling
+            certification of proficiency in Portuguese.
+          </p>
         </div>
         <div class="info-card">
           <div class="info-card-header">
-            <h3>Age-Appropriate</h3>
-            <div class="info-card-icon info-card-icon--red">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E7000B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
-            </div>
+            <h3>Heritage Language Teaching</h3>
           </div>
-          <p>Each level is carefully designed to match the developmental stage and learning capabilities of students.</p>
+          <p>
+            QuaREPE serves as a reference for teaching Portuguese to heritage
+            learners in Canadian cities, aiding in curriculum development.
+          </p>
         </div>
         <div class="info-card">
           <div class="info-card-header">
-            <h3>Comprehensive</h3>
-            <div class="info-card-icon info-card-icon--blue">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#155DFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-            </div>
+            <h3>Framework Alignment</h3>
           </div>
-          <p>Beyond language, we teach history, literature, and help students connect with Portuguese culture.</p>
+          <p>
+            While sometimes linked with the Common European Framework of
+            Reference for Languages (CEFR), QuaREPE is specifically focused on
+            the teaching of Portuguese abroad.
+          </p>
         </div>
       </div>
     </div>
@@ -117,7 +99,10 @@ const curriculum = Object.entries(curriculumModules)
   <section class="curriculum-fees">
     <div class="container curriculum-fees-grid">
       <div class="curriculum-fees-image">
-        <img src="/assets/images/curriculum-fees.png" alt="Students in classroom" />
+        <img
+          src="/assets/images/fees-classroom.jpeg"
+          alt="Students in classroom"
+        />
       </div>
       <div class="curriculum-fees-content">
         <h2>School Fees</h2>
@@ -141,11 +126,18 @@ const curriculum = Object.entries(curriculumModules)
         </div>
 
         <div class="curriculum-fees-payment">
-          <p>Families may choose to pay tuition in one full payment or in two installments.</p>
+          <p>
+            Families may choose to pay tuition in one full payment or in two
+            installments.
+          </p>
           <div class="fees-payment-option">
             <h4>1. One Full Payment</h4>
             <ul class="fees-payment-list">
-              <li><strong>E-transfer</strong> &ndash; due November 30 to {site.email.payments}</li>
+              <li>
+                <strong>E-transfer</strong> &ndash; due November 30 to {
+                  site.email.payments
+                }
+              </li>
               <li><strong>Cheque</strong> &ndash; due November 30</li>
               <li><strong>Cash</strong> &ndash; due November 30</li>
             </ul>
@@ -153,9 +145,18 @@ const curriculum = Object.entries(curriculumModules)
           <div class="fees-payment-option">
             <h4>2. Two Installments</h4>
             <ul class="fees-payment-list">
-              <li><strong>E-transfer</strong> &ndash; 1st installment due November 30 / 2nd installment due January 31 to {site.email.payments}</li>
-              <li><strong>Post-dated cheques</strong> &ndash; 1st dated November 30 / 2nd dated January 31</li>
-              <li><strong>Cash</strong> &ndash; 1st due November 30 / 2nd due January 31</li>
+              <li>
+                <strong>E-transfer</strong> &ndash; 1st installment due November 30
+                / 2nd installment due January 31 to {site.email.payments}
+              </li>
+              <li>
+                <strong>Post-dated cheques</strong> &ndash; 1st dated November 30
+                / 2nd dated January 31
+              </li>
+              <li>
+                <strong>Cash</strong> &ndash; 1st due November 30 / 2nd due January
+                31
+              </li>
             </ul>
           </div>
         </div>

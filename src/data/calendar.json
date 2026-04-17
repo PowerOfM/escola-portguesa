@@ -1,93 +1,42 @@
 [
-  {
-    "month": "Sep",
-    "day": "6",
-    "title": "First Day of School",
-    "tag": "academic",
-    "description": "Classes begin for the 2026–2027 school year. Welcome assembly at 9:00 AM."
-  },
-  {
-    "month": "Oct",
-    "day": "5",
-    "title": "Implantação da República",
-    "tag": "cultural",
-    "description": "No classes. Holiday commemorating the establishment of the Portuguese Republic in 1910."
-  },
-  {
-    "month": "Oct",
-    "day": "10",
-    "title": "Parent–Teacher Conferences",
-    "tag": "academic",
-    "description": "Individual meetings with teachers to discuss student progress. Sign-up sheets available at the office."
-  },
-  {
-    "month": "Nov",
-    "day": "1",
-    "title": "Dia de Todos os Santos",
-    "tag": "cultural",
-    "description": "No classes. All Saints' Day holiday."
-  },
-  {
-    "month": "Nov",
-    "day": "30",
-    "title": "Tuition Due",
-    "tag": "academic",
-    "description": "First installment or full payment due. See <a href=\"/curriculum\">School Fees</a> for payment options."
-  },
-  {
-    "month": "Dec",
-    "day": "20",
-    "title": "Winter Break Begins",
-    "tag": "academic",
-    "description": "Last day of classes before winter break. Holiday celebration in classrooms."
-  },
-  {
-    "month": "Jan",
-    "day": "10",
-    "title": "Classes Resume",
-    "tag": "academic",
-    "description": "First day back after winter break."
-  },
-  {
-    "month": "Jan",
-    "day": "31",
-    "title": "Second Tuition Installment Due",
-    "tag": "academic",
-    "description": "Second installment due for families on the two-payment plan."
-  },
-  {
-    "month": "Mar",
-    "day": "14",
-    "title": "Spring Break Begins",
-    "tag": "academic",
-    "description": "No classes during spring break week."
-  },
-  {
-    "month": "Mar",
-    "day": "28",
-    "title": "Classes Resume",
-    "tag": "academic",
-    "description": "First day back after spring break."
-  },
-  {
-    "month": "Apr",
-    "day": "25",
-    "title": "Dia da Liberdade",
-    "tag": "cultural",
-    "description": "No classes. Liberty Day holiday celebrating the 1974 Carnation Revolution."
-  },
-  {
-    "month": "Jun",
-    "day": "10",
-    "title": "Dia de Portugal",
-    "tag": "cultural",
-    "description": "No classes. Portugal Day celebration."
-  },
-  {
-    "month": "Jun",
-    "day": "19",
-    "title": "Last Day of School",
-    "tag": "academic",
-    "description": "Final day of the 2026–2027 school year. End-of-year celebration and awards ceremony."
-  }
+  { "date": "2025-09-13", "school": true, "note": "First day of classes" },
+  { "date": "2025-09-20", "school": true },
+  { "date": "2025-09-27", "school": true },
+  { "date": "2025-10-04", "school": true },
+  { "date": "2025-10-11", "school": false, "note": "Thanksgiving" },
+  { "date": "2025-10-18", "school": true },
+  { "date": "2025-10-25", "school": true },
+  { "date": "2025-11-01", "school": true },
+  { "date": "2025-11-08", "school": true },
+  { "date": "2025-11-15", "school": true },
+  { "date": "2025-11-22", "school": true },
+  { "date": "2025-11-29", "school": true },
+  { "date": "2025-12-06", "school": true },
+  { "date": "2025-12-13", "school": true },
+  { "date": "2025-12-20", "school": false, "note": "Winter Break" },
+  { "date": "2025-12-27", "school": false, "note": "Winter Break" },
+  { "date": "2026-01-03", "school": true },
+  { "date": "2026-01-10", "school": false, "note": "Notre Dame event" },
+  { "date": "2026-01-17", "school": true },
+  { "date": "2026-01-24", "school": true },
+  { "date": "2026-01-31", "school": true },
+  { "date": "2026-02-07", "school": true },
+  { "date": "2026-02-14", "school": false, "note": "Family Day" },
+  { "date": "2026-02-21", "school": true },
+  { "date": "2026-02-28", "school": true },
+  { "date": "2026-03-07", "school": true },
+  { "date": "2026-03-14", "school": true },
+  { "date": "2026-03-21", "school": false, "note": "Spring Break" },
+  { "date": "2026-03-28", "school": false, "note": "Spring Break" },
+  { "date": "2026-04-04", "school": false, "note": "Easter" },
+  { "date": "2026-04-11", "school": true },
+  { "date": "2026-04-18", "school": true },
+  { "date": "2026-04-25", "school": true },
+  { "date": "2026-05-02", "school": true },
+  { "date": "2026-05-09", "school": true },
+  { "date": "2026-05-16", "school": false, "note": "Victoria Day" },
+  { "date": "2026-05-23", "school": true },
+  { "date": "2026-05-30", "school": true },
+  { "date": "2026-06-06", "school": true, "note": "Classes at the Portuguese Cultural Centre for Portugal Day" },
+  { "date": "2026-06-13", "school": true, "note": "Last day of classes" }
 ]
