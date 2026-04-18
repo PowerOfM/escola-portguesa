@@ -1,5 +1,5 @@
 ---
-import home from '../data/home.json';
+import home from "../data/home.json";
 ---
 
 <section class="home-cta">
@@ -7,7 +7,7 @@ import home from '../data/home.json';
     <img src="/assets/images/cta-bg2.jpeg" alt="" />
   </div>
   <div class="home-cta-content">
-    <h2>{home.cta.heading}</h2>
+    <h2 set:html={home.cta.heading} />
     <p>{home.cta.body}</p>
     <a href="/contact" class="btn-primary">REGISTER NOW</a>
   </div>

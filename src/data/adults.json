@@ -1,0 +1,43 @@
+{
+  "intro": {
+    "lead": "We are excited to announce a new initiative launching for the <strong>2026–2027 school year</strong>: Portuguese language classes designed specifically for adult learners.",
+    "body": [
+      "Whether you are reconnecting with your heritage, supporting your children's learning at home, preparing to visit Portugal, or simply want to discover one of the world's most widely spoken languages: this program is for you.",
+      "Our adult classes will bring the same dedication, cultural richness, and community spirit that has defined Escola Portuguesa Nossa Senhora de Fátima for over 50 years, tailored to the pace and interests of adult learners."
+    ]
+  },
+  "whatToExpect": {
+    "heading": "What to Expect",
+    "cards": [
+      {
+        "title": "All Levels Welcome",
+        "body": "Classes will be structured for complete beginners through to intermediate speakers. No prior knowledge of Portuguese required.",
+        "iconColor": "green"
+      },
+      {
+        "title": "Saturday Schedule",
+        "body": "Classes run on Saturdays alongside our children's program, making it easy for parents to learn while their children do too.",
+        "iconColor": "blue"
+      },
+      {
+        "title": "Culture & Community",
+        "body": "Go beyond vocabulary and grammar — explore Portuguese history, traditions, music, and literature as part of the learning experience.",
+        "iconColor": "yellow"
+      }
+    ]
+  },
+  "waitlist": {
+    "heading": "Join the Waitlist",
+    "intro": "Full program details — including schedules, fees, and registration — will be announced soon. Leave your name and email below and we will reach out as soon as enrollment opens.",
+    "form": {
+      "nameLabel": "Your Name *",
+      "namePlaceholder": "Your full name",
+      "emailLabel": "Email Address *",
+      "emailPlaceholder": "your.email@example.com",
+      "messageLabel": "Anything you'd like us to know?",
+      "messagePlaceholder": "Your current Portuguese level, how you heard about us, or any questions you have...",
+      "submitButton": "Express Interest",
+      "note": "* Required fields. We'll be in touch once details are confirmed."
+    }
+  }
+}

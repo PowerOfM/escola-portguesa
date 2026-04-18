@@ -1,7 +1,7 @@
 {
   "name": "Escola Portuguesa Nossa Senhora de Fátima",
   "shortName": "Escola Portuguesa Vancouver",
-  "tagline": "Preserving Portuguese language and culture in Vancouver for over 40 years. We provide quality Portuguese education for children from kindergarten through grade 12.",
+  "tagline": "Preserving Portuguese language and culture in Vancouver for over 50 years. We provide quality Portuguese education for children in the heart of Vancouver.",
   "founded": 1985,
   "address": {
     "name": "Notre Dame Regional Secondary School",
@@ -16,14 +16,10 @@
     "admin": "admin@escolaportuguesavancouver.ca",
     "payments": "escolaportuguesavancouver@gmail.com"
   },
-  "officeHours": {
-    "saturday": "12:00 PM – 4:00 PM",
-    "weekdays": "By appointment"
-  },
   "schoolYear": {
-    "start": "September 6, 2026",
-    "end": "June 19, 2027",
-    "label": "2026–2027"
+    "start": "September 13, 2025",
+    "end": "June 13, 2026",
+    "label": "2025–2026"
   },
   "classDays": "Every Saturday (except holidays)"
 }

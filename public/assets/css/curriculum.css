@@ -36,6 +36,7 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  object-position: center 25%;
   display: block;
 }
 
@@ -49,6 +50,22 @@
 .curriculum-detail-header h2 {
   color: #101828;
   margin-bottom: 8px;
+}
+
+.curriculum-teacher {
+  font-size: 16px;
+  margin-top: 4px;
+  color: var(--gray-400);
+}
+
+.curriculum-teacher a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.curriculum-teacher a:hover {
+  text-decoration: underline;
 }
 
 .curriculum-detail-age {

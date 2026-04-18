@@ -163,11 +163,10 @@
   padding: 80px 0;
 }
 
-.home-curriculum-intro {
-  font-size: 20px;
-  line-height: 1.4;
-  max-width: 1293px;
-  margin-bottom: 33px;
+.home-curriculum .container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
 .home-curriculum-pills {

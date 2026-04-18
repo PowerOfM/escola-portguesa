@@ -14,12 +14,16 @@ const curriculum = Object.entries(curriculumModules)
     compiledContent: mod.compiledContent,
   }));
 
-const separatorModules = import.meta.glob(
-  "../../public/assets/separators/*.{jpeg,jpg,png,webp}",
-);
-const separatorUrls = Object.keys(separatorModules).map((k) =>
-  k.replace(/^.*\/public/, ""),
-);
+const separatorRows = [1, 2, 3, 4, 5].map((n) => {
+  const modules = import.meta.glob(
+    "../../public/assets/separators/**/*.{jpeg,jpg,png,webp}",
+    { eager: false },
+  );
+  return Object.keys(modules)
+    .filter((k) => k.includes(`/row-${n}/`))
+    .sort()
+    .map((k) => k.replace(/^.*\/public/, ""));
+});
 ---
 
 <Layout
@@ -37,6 +41,14 @@ const separatorUrls = Object.keys(separatorModules).map((k) =>
               <div class="curriculum-detail-header">
                 <div>
                   <h2>{level.title}</h2>
+                  {level.teacher && (
+                    <p class="curriculum-teacher">
+                      Professora:{" "}
+                      <a href={`/about#teacher-${level.teacher.toLowerCase()}`}>
+                        {level.teacher}
+                      </a>
+                    </p>
+                  )}
                 </div>
               </div>
               <div
@@ -44,13 +56,10 @@ const separatorUrls = Object.keys(separatorModules).map((k) =>
                 set:html={level.compiledContent()}
               />
             </div>
-            {separatorUrls.length > 0 && i < curriculum.length - 1 && (
+            {i < curriculum.length - 1 && separatorRows[i]?.length > 0 && (
               <div class="curriculum-collage">
-                {[0, 1, 2, 3].map((j) => (
-                  <img
-                    src={separatorUrls[(i * 4 + j) % separatorUrls.length]}
-                    alt=""
-                  />
+                {separatorRows[i].map((src) => (
+                  <img src={src} alt="" />
                 ))}
               </div>
             )}

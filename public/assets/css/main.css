@@ -36,12 +36,12 @@ h3 {
 
 h1 {
   font-size: 64px;
-  line-height: 1;
+  line-height: 1.15;
 }
 
 h2 {
   font-size: 36px;
-  line-height: 1.11;
+  line-height: 1.15;
 }
 
 h3 {
@@ -305,16 +305,16 @@ header nav .nav-active a {
 
 /* Footer */
 footer {
-  background-color: var(--white);
+  background-color: var(--primary);
   padding: 48px 0 0;
-  color: var(--gray-500);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .footer-main {
   display: flex;
   gap: 32px;
   padding-bottom: 32px;
-  border-bottom: 1px solid rgba(20, 50, 33, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .footer-brand {
@@ -341,7 +341,7 @@ footer {
   font-size: 24px;
   line-height: 0.875;
   text-transform: uppercase;
-  color: var(--primary);
+  color: var(--white);
   max-width: 239px;
 }
 
@@ -365,7 +365,7 @@ footer {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 18px;
-  color: var(--primary);
+  color: var(--white);
 }
 
 .footer-links-column ul {
@@ -377,12 +377,12 @@ footer {
 }
 
 .footer-links-column a {
-  color: var(--gray-500);
+  color: rgba(255, 255, 255, 0.7);
   transition: color 0.2s;
 }
 
 .footer-links-column a:hover {
-  color: var(--primary);
+  color: var(--white);
 }
 
 .footer-contact {
@@ -407,13 +407,13 @@ footer {
 .footer-bottom {
   padding: 33px 0;
   text-align: center;
-  border-top: 1px solid rgba(20, 50, 33, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .footer-bottom p {
   font-size: 14px;
   line-height: 1.43;
-  color: var(--gray-400);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* Generic page sections */

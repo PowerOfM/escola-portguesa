@@ -1,25 +1,25 @@
 {
   "hero": {
-    "heading": "Olá!<br />Vamos aprender portguês!",
-    "lead": "Nurturing Portuguese language and culture in young minds. Quality education for children from Kindergarten through Grade 12 in the heart of Vancouver.",
-    "badge": "Serving Vancouver for 40+ Years",
+    "heading": "Olá!<br />Vamos aprender português!",
+    "lead": "Nurturing Portuguese language and culture in young minds. Quality education for children in the heart of Vancouver.",
+    "badge": "Serving Vancouver for 50+ Years",
     "enrolmentTag": "Enrolment open for Fall 2026"
   },
   "school": {
-    "heading": "Our School",
-    "lead": "Founded by a group of passionate Portuguese immigrants, Escola Portuguesa has been a cornerstone of cultural preservation in Vancouver's Portuguese community.",
+    "heading": "A Nossa Escola / Our School",
+    "lead": "Founded by a group of passionate Portuguese immigrants, Escola Portuguesa Nossa Senhora de Fátima has been a cornerstone of cultural preservation in Vancouver's Portuguese community.",
     "body": "For over four decades, we've been dedicated to providing high-quality Portuguese language education to children in the Greater Vancouver area. Our mission is to preserve and promote Portuguese language, culture, and heritage while fostering a love for learning in a supportive environment."
   },
   "curriculumSection": {
-    "heading": "Our Curriculum",
-    "intro": "We offer Portuguese language classes designed for Canadian students and in alignment with the Framework for the Portuguese Education Abroad:  QuaREPE (Quadro de Referência para o Ensino de Português no Estrangeiro), We focus on oral comprehension, oral expression, reading and writing at the following levels:"
+    "heading": "O Currículo / Our Curriculum",
+    "intro": "We offer Portuguese language classes alignment with the Framework for the Portuguese Education Abroad: QuaREPE (Quadro de Referência para o Ensino de Português no Estrangeiro). We focus on oral comprehension, oral expression, reading and writing at the following levels:"
   },
   "teachersSection": {
-    "heading": "Our Teachers",
+    "heading": "As Professoras / Our Teachers",
     "body": "Our dedicated team of experienced educators is passionate about Portuguese language and culture. Each teacher brings unique expertise and a commitment to student success."
   },
   "cta": {
-    "heading": "Ready to Begin Your Journey?",
+    "heading": "Vem Connosco!<br />Ready to Begin Your Journey?",
     "body": "Join our vibrant community and give your child the gift of language and culture. Enrollment is now open for the 2026-2027 school year!"
   }
 }

@@ -1,21 +1,23 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import CTA from '../components/CTA.astro';
-import home from '../data/home.json';
+import Layout from "../layouts/Layout.astro";
+import CTA from "../components/CTA.astro";
+import home from "../data/home.json";
 
-const curriculumModules = import.meta.glob('../data/curriculum/*.json', { eager: true });
+const curriculumModules = import.meta.glob("../data/curriculum/*.md", {
+  eager: true,
+});
 const curriculum = Object.entries(curriculumModules)
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([path, mod]: [string, any]) => ({
-    slug: path.split('/').pop()!.replace('.json', ''),
-    ...mod.default,
+    slug: path.split("/").pop()!.replace(".md", ""),
+    ...mod.frontmatter,
   }));
 ---
 
 <Layout title="Home" hideTitle={true} css="home">
   <section class="home-hero">
     <div class="home-hero-bg">
-      <img src="/assets/images/hero-bg2.jpeg" alt="" />
+      <img src="/assets/images/contact-hero.jpeg" alt="" />
     </div>
     <div class="home-hero-content">
       <div class="home-hero-text">
@@ -35,7 +37,7 @@ const curriculum = Object.entries(curriculumModules)
   <section class="home-school">
     <div class="container home-school-grid">
       <div class="home-school-image">
-        <img src="/assets/images/our-school2.jpeg" alt="Our School" />
+        <img src="/assets/images/our-school3.jpeg" alt="Our School" />
       </div>
       <div class="home-school-content">
         <h2>{home.school.heading}</h2>
@@ -51,9 +53,16 @@ const curriculum = Object.entries(curriculumModules)
       <h2>{home.curriculumSection.heading}</h2>
       <p class="home-curriculum-intro">{home.curriculumSection.intro}</p>
       <div class="home-curriculum-pills">
-        {curriculum.map((level, index) => (
-          <a href={`/children#${level.slug}`} class={`pill pill-${index + 1}`}>{level.title}</a>
-        ))}
+        {
+          curriculum.map((level, index) => (
+            <a
+              href={`/children#${level.slug}`}
+              class={`pill pill-${index + 1}`}
+            >
+              {level.title}
+            </a>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -61,7 +70,7 @@ const curriculum = Object.entries(curriculumModules)
   <section class="home-teachers">
     <div class="container home-teachers-grid">
       <div class="home-teachers-content">
-        <h2>{home.teachersSection.heading}</h2>
+        <h2 set:html={home.teachersSection.heading} />
         <p>{home.teachersSection.body}</p>
         <a href="/about#our-teachers" class="btn-outline">MEET THE TEACHERS</a>
       </div>

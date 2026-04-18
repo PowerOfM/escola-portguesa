@@ -31,12 +31,15 @@ const teachers = Object.entries(teacherModules)
 
   <section class="about-teachers" id="our-teachers">
     <div class="container">
-      <h2>Our Teachers</h2>
+      <h2>As Professoras / Our Teachers</h2>
 
       <div class="about-teachers-list">
         {
           teachers.map((teacher: any) => (
-            <article class="teacher-card">
+            <article
+              class="teacher-card"
+              id={`teacher-${teacher.name.toLowerCase()}`}
+            >
               <div class="teacher-card-image">
                 {teacher.image ? (
                   <img src={teacher.image} alt={teacher.name} />
