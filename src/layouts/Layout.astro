@@ -12,13 +12,23 @@ interface Props {
   navPage?: string;
 }
 
-const { title, description = site.tagline, css, hideTitle = false, heroImage, navPage } = Astro.props;
+const {
+  title,
+  description = site.tagline,
+  css,
+  hideTitle = false,
+  heroImage,
+  navPage,
+} = Astro.props;
 const cssFiles = css ? (Array.isArray(css) ? css : [css]) : [];
 
 const siteName = site.name;
 const fullTitle = `${title} – ${siteName}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL(heroImage ?? "/assets/images/our-school.jpeg", Astro.site);
+const ogImage = new URL(
+  heroImage ?? "/assets/images/our-school.jpeg",
+  Astro.site,
+);
 ---
 
 <!doctype html>
@@ -54,6 +64,12 @@ const ogImage = new URL(heroImage ?? "/assets/images/our-school.jpeg", Astro.sit
         <link rel="stylesheet" href={`/assets/css/${c}.css`} />
       ))
     }
+
+    <!-- Umami Analytics -->
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="02dcab0d-bafc-483a-b08a-38631d3e1677"></script>
   </head>
   <body class={hideTitle ? "home" : undefined}>
     <Header navPage={navPage} />
