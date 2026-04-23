@@ -25,31 +25,6 @@ const curriculum = Object.entries(curriculumModules)
       <div class="contact-cards">
         <div class="info-card">
           <div class="info-card-header">
-            <h3>Location</h3>
-            <div class="info-card-icon info-card-icon--green">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#00A63E"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                ></path><circle cx="12" cy="10" r="3"></circle></svg
-              >
-            </div>
-          </div>
-          <p>
-            Classes are held at <strong>{site.address.name}</strong>.<br />
-            For location details, please contact us by email.
-          </p>
-        </div>
-
-        <div class="info-card">
-          <div class="info-card-header">
             <h3>Email</h3>
             <div class="info-card-icon info-card-icon--yellow">
               <svg
@@ -76,6 +51,31 @@ const curriculum = Object.entries(curriculumModules)
             <strong>Payments:</strong>
             <a href={`mailto:${site.email.payments}`}>{site.email.payments}</a
             ><br />
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-header">
+            <h3>Location</h3>
+            <div class="info-card-icon info-card-icon--green">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#00A63E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                ></path><circle cx="12" cy="10" r="3"></circle></svg
+              >
+            </div>
+          </div>
+          <p>
+            Classes are held at <strong>{site.address.name}</strong>.<br />
+            For location details, please contact us by email.
           </p>
         </div>
       </div>
