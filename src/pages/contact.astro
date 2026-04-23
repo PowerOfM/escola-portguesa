@@ -25,7 +25,7 @@ const curriculum = Object.entries(curriculumModules)
       <div class="contact-cards">
         <div class="info-card">
           <div class="info-card-header">
-            <h3>Address</h3>
+            <h3>Location</h3>
             <div class="info-card-icon info-card-icon--green">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -43,11 +43,8 @@ const curriculum = Object.entries(curriculumModules)
             </div>
           </div>
           <p>
-            {site.address.name}<br />
-            {site.address.street}<br />
-            {site.address.city}, {site.address.province}
-            {site.address.postal}<br />
-            {site.address.country}
+            Classes are held at <strong>{site.address.name}</strong>.<br />
+            For location details, please contact us by email.
           </p>
         </div>
 
