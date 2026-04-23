@@ -4,7 +4,12 @@
   "tagline": "Preserving Portuguese language and culture in Vancouver for over 50 years. We provide quality Portuguese education for children in the heart of Vancouver.",
   "founded": 1985,
   "address": {
-    "name": "Notre Dame Regional Secondary School"
+    "name": "Notre Dame Regional Secondary School",
+    "street": "2880 Venables St",
+    "city": "Vancouver",
+    "province": "BC",
+    "postal": "V5K 2T8",
+    "country": "Canada"
   },
   "email": {
     "general": "escola@escolaportuguesavancouver.ca",
