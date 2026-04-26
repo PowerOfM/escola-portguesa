@@ -13,17 +13,6 @@ const curriculum = Object.entries(curriculumModules)
     ...mod.frontmatter,
     compiledContent: mod.compiledContent,
   }));
-
-const separatorRows = [1, 2, 3, 4, 5].map((n) => {
-  const modules = import.meta.glob(
-    "../../public/assets/separators/**/*.{jpeg,jpg,png,webp}",
-    { eager: false },
-  );
-  return Object.keys(modules)
-    .filter((k) => k.includes(`/row-${n}/`))
-    .sort()
-    .map((k) => k.replace(/^.*\/public/, ""));
-});
 ---
 
 <Layout
@@ -33,40 +22,35 @@ const separatorRows = [1, 2, 3, 4, 5].map((n) => {
   navPage="children"
 >
   <section class="curriculum-levels">
-    <div class="container">
-      {
-        curriculum.map((level, i) => (
-          <>
-            <div class="curriculum-detail" id={level.slug}>
-              <div class="curriculum-detail-header">
-                <div>
-                  <h2>{level.title}</h2>
-                  {level.teacher && (
-                    <p class="curriculum-teacher">
-                      Professora:{" "}
-                      <a href={`/about#teacher-${level.teacher.toLowerCase()}`}>
-                        {level.teacher}
-                      </a>
-                    </p>
-                  )}
-                </div>
+    {
+      curriculum.map((level, i) => (
+        <>
+          <div class="container curriculum-detail" id={level.slug}>
+            <div class="curriculum-detail-header">
+              <div>
+                <h2>{level.title}</h2>
+                {level.teacher && (
+                  <p class="curriculum-teacher">
+                    Professora:{" "}
+                    <a href={`/about#teacher-${level.teacher.toLowerCase()}`}>
+                      {level.teacher}
+                    </a>
+                  </p>
+                )}
               </div>
-              <div
-                class="curriculum-detail-body"
-                set:html={level.compiledContent()}
-              />
             </div>
-            {i < curriculum.length - 1 && separatorRows[i]?.length > 0 && (
-              <div class="curriculum-collage">
-                {separatorRows[i].map((src) => (
-                  <img src={src} alt="" />
-                ))}
-              </div>
-            )}
-          </>
-        ))
-      }
-    </div>
+            <div
+              class="curriculum-detail-body"
+              set:html={level.compiledContent()}
+            />
+          </div>
+          <div
+            class="curriculum-separator"
+            style={`background-image: url('/assets/separators/bluetile${i + 1}.webp')`}
+          />
+        </>
+      ))
+    }
   </section>
 
   <section class="curriculum-intro">

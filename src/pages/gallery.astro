@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const imageModules = import.meta.glob(
+  "../../public/assets/gallery/*.{jpeg,jpg}",
+  { eager: false }
+);
+
+const images = Object.keys(imageModules)
+  .sort()
+  .map((k) => k.replace(/^.*\/public/, ""));
+---
+
+<Layout
+  title="Gallery"
+  css="gallery"
+  navPage="gallery"
+  heroImage="/assets/images/contact-hero.jpeg"
+>
+  <section class="gallery-section">
+    <div class="container">
+      <div class="gallery-grid">
+        {
+          images.map((src) => (
+            <a href={src} target="_blank" rel="noopener" class="gallery-item">
+              <img src={src} alt="" loading="lazy" />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

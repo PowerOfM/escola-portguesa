@@ -16,28 +16,16 @@
 
 .curriculum-detail {
   display: block;
-  /*background-color: var(--white);*/
-  /*border: 1px solid rgba(20, 50, 33, 0.1);*/
-  /*border-radius: 16px;*/
-  padding: 50px 0;
-  /*margin-bottom: 32px;*/
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
-/* Photo collage */
-.curriculum-collage {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.curriculum-collage img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  object-position: center 25%;
-  display: block;
+/* Grade separator */
+.curriculum-separator {
+  height: 100px;
+  background-size: 200px 200px;
+  background-position: center center;
+  background-repeat: repeat;
 }
 
 .curriculum-detail-header {
@@ -255,10 +243,6 @@
 @media (max-width: 768px) {
   .curriculum-intro {
     padding: 40px 0 0;
-  }
-
-  .curriculum-collage {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .curriculum-detail {

@@ -15,16 +15,39 @@ const { navPage } = Astro.props;
 
     <nav>
       <ul>
-        <li class={`nav-home${navPage === 'home' ? ' nav-active' : ''}`}><a href="/">Home</a></li>
-        <li class={`nav-children${navPage === 'children' ? ' nav-active' : ''}`}><a href="/children/">Children</a></li>
-        <li class={`nav-adults${navPage === 'adults' ? ' nav-active' : ''}`}><a href="/adults/">Adults</a></li>
-        <li class={`nav-calendar${navPage === 'calendar' ? ' nav-active' : ''}`}><a href="/calendar/">2026 Calendar</a></li>
-        <li class={`nav-about${navPage === 'about' ? ' nav-active' : ''}`}><a href="/about/">About</a></li>
-        <li class={`nav-contact${navPage === 'contact' ? ' nav-active' : ''}`}><a href="/contact/">Contact</a></li>
+        <li class={`nav-home${navPage === "home" ? " nav-active" : ""}`}>
+          <a href="/">Home</a>
+        </li>
+        <li
+          class={`nav-children${navPage === "children" ? " nav-active" : ""}`}
+        >
+          <a href="/children/">Children</a>
+        </li>
+        <li class={`nav-adults${navPage === "adults" ? " nav-active" : ""}`}>
+          <a href="/adults/">Adults</a>
+        </li>
+        <li class={`nav-gallery${navPage === "gallery" ? " nav-active" : ""}`}>
+          <a href="/gallery/">Gallery</a>
+        </li>
+        <li class={`nav-about${navPage === "about" ? " nav-active" : ""}`}>
+          <a href="/about/">About</a>
+        </li>
+        <li
+          class={`nav-calendar${navPage === "calendar" ? " nav-active" : ""}`}
+        >
+          <a href="/calendar/">2026 Calendar</a>
+        </li>
+        <li class={`nav-contact${navPage === "contact" ? " nav-active" : ""}`}>
+          <a href="/contact/">Contact</a>
+        </li>
       </ul>
     </nav>
 
-    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+    <button
+      class="nav-toggle"
+      aria-label="Open navigation"
+      aria-expanded="false"
+    >
       <span></span>
       <span></span>
       <span></span>
@@ -34,31 +57,34 @@ const { navPage } = Astro.props;
 
 <script>
   (function () {
-    var toggle = document.querySelector('.nav-toggle');
-    var nav = document.querySelector('header nav');
+    var toggle = document.querySelector(".nav-toggle");
+    var nav = document.querySelector("header nav");
 
-    toggle.addEventListener('click', function () {
-      var open = nav.classList.toggle('is-open');
-      toggle.classList.toggle('is-active', open);
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    toggle.addEventListener("click", function () {
+      var open = nav.classList.toggle("is-open");
+      toggle.classList.toggle("is-active", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute(
+        "aria-label",
+        open ? "Close navigation" : "Open navigation",
+      );
     });
 
-    document.addEventListener('click', function (e) {
-      if (!e.target.closest('header')) {
-        nav.classList.remove('is-open');
-        toggle.classList.remove('is-active');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open navigation');
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest("header")) {
+        nav.classList.remove("is-open");
+        toggle.classList.remove("is-active");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open navigation");
       }
     });
 
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        nav.classList.remove('is-open');
-        toggle.classList.remove('is-active');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open navigation');
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        nav.classList.remove("is-open");
+        toggle.classList.remove("is-active");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open navigation");
       }
     });
   })();
