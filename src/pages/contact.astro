@@ -93,7 +93,16 @@ const curriculum = Object.entries(curriculumModules)
         about our programs.
       </p>
 
-      <form class="contact-form" action="#" method="post">
+      <form
+        class="contact-form"
+        action={"https://formsubmit.co/" + site.email.general}
+        method="post"
+      >
+        <input
+          type="hidden"
+          name="_subject"
+          value="Website Enrollment Inquiry"
+        />
         <div class="contact-form-group">
           <label class="contact-form-label">Enrollment Type</label>
           <div class="contact-form-radio-group">

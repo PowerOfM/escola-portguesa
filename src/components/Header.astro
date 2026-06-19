@@ -57,11 +57,14 @@ const { navPage } = Astro.props;
 
 <script>
   (function () {
-    var toggle = document.querySelector(".nav-toggle");
-    var nav = document.querySelector("header nav");
+    const toggle = document.querySelector(".nav-toggle");
+    const nav = document.querySelector("header nav");
 
+    if (!toggle) {
+      return;
+    }
     toggle.addEventListener("click", function () {
-      var open = nav.classList.toggle("is-open");
+      const open = nav?.classList.toggle("is-open");
       toggle.classList.toggle("is-active", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
       toggle.setAttribute(
@@ -71,8 +74,13 @@ const { navPage } = Astro.props;
     });
 
     document.addEventListener("click", function (e) {
-      if (!e.target.closest("header")) {
-        nav.classList.remove("is-open");
+      if (
+        e.target &&
+        "closest" in e.target &&
+        typeof e.target.closest === "function" &&
+        e.target.closest("header")
+      ) {
+        nav?.classList.remove("is-open");
         toggle.classList.remove("is-active");
         toggle.setAttribute("aria-expanded", "false");
         toggle.setAttribute("aria-label", "Open navigation");
@@ -81,7 +89,7 @@ const { navPage } = Astro.props;
 
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") {
-        nav.classList.remove("is-open");
+        nav?.classList.remove("is-open");
         toggle.classList.remove("is-active");
         toggle.setAttribute("aria-expanded", "false");
         toggle.setAttribute("aria-label", "Open navigation");
