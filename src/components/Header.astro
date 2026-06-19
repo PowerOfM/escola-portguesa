@@ -9,7 +9,7 @@ const { navPage } = Astro.props;
 <header>
   <div class="container">
     <a href="/" class="logo-group">
-      <img src="/assets/logo-rooster.jpg" alt="Logo" />
+      <img src="/assets/logo-rooster.png" alt="Logo" />
       <span>ESCOLA PORTUGUESA<br />NOSSA SENHORA<br />DE F&Aacute;TIMA</span>
     </a>
 
@@ -60,11 +60,12 @@ const { navPage } = Astro.props;
     const toggle = document.querySelector(".nav-toggle");
     const nav = document.querySelector("header nav");
 
-    if (!toggle) {
-      return;
-    }
-    toggle.addEventListener("click", function () {
-      const open = nav?.classList.toggle("is-open");
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+
+      const open = nav.classList.toggle("is-open");
       toggle.classList.toggle("is-active", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
       toggle.setAttribute(
@@ -74,13 +75,10 @@ const { navPage } = Astro.props;
     });
 
     document.addEventListener("click", function (e) {
-      if (
-        e.target &&
-        "closest" in e.target &&
-        typeof e.target.closest === "function" &&
-        e.target.closest("header")
-      ) {
-        nav?.classList.remove("is-open");
+      if (!e.target || !(e.target instanceof Element)) return;
+
+      if (!e.target.closest("header")) {
+        nav.classList.remove("is-open");
         toggle.classList.remove("is-active");
         toggle.setAttribute("aria-expanded", "false");
         toggle.setAttribute("aria-label", "Open navigation");
@@ -89,7 +87,7 @@ const { navPage } = Astro.props;
 
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") {
-        nav?.classList.remove("is-open");
+        nav.classList.remove("is-open");
         toggle.classList.remove("is-active");
         toggle.setAttribute("aria-expanded", "false");
         toggle.setAttribute("aria-label", "Open navigation");
