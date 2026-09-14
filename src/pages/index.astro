@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import CTA from "../components/CTA.astro";
 import home from "../data/home.json";
+import { enrollment, enrollmentCopy } from "../utils/enrollment";
 
 const curriculumModules = import.meta.glob("../data/curriculum/*.md", {
   eager: true,
@@ -29,9 +30,11 @@ const curriculum = Object.entries(curriculumModules)
       </div>
       <div class="home-hero-cta">
         <a href="/contact" class="btn-primary">
-          GET IN TOUCH
+          {enrollment.open ? "REGISTER NOW" : "GET IN TOUCH"}
         </a>
-        <span class="home-hero-cta-tag">{home.hero.enrolmentTag}</span>
+        <span class="home-hero-cta-tag">
+          {enrollmentCopy(home.hero.enrollmentTag)}
+        </span>
       </div>
     </div>
   </section>

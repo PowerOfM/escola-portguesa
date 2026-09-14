@@ -1,8 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import site from "../data/site.json";
+import { enrollment, enrollmentCopy } from "../utils/enrollment";
 
-const enrollmentOpen = false;
+const enrollmentOpen = enrollment.open;
+const closedFormIntro = enrollmentCopy({
+  open: "",
+  closed:
+    "Enrollment for the {currentYear} school year has now ended. Registration for the {nextYear} school year will open early next year. If you'd like to register your interest for next year, please send us a message below and we'll follow up once registration opens.",
+});
 ---
 
 <Layout
@@ -222,12 +228,7 @@ const enrollmentOpen = false;
       {!enrollmentOpen && (
         <Fragment>
           <h2>Contact Us</h2>
-          <p class="contact-form-intro">
-            Enrollment for the 2026/27 school year has now ended. Registration
-            for the 2027/28 school year will open early next year. If you'd like
-            to register your interest for next year, please send us a message
-            below and we'll follow up once registration opens.
-          </p>
+          <p class="contact-form-intro">{closedFormIntro}</p>
 
           <form
             class="contact-form"

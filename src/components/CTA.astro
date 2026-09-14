@@ -1,5 +1,6 @@
 ---
 import home from "../data/home.json";
+import { enrollment, enrollmentCopy } from "../utils/enrollment";
 ---
 
 <section class="home-cta">
@@ -8,7 +9,9 @@ import home from "../data/home.json";
   </div>
   <div class="home-cta-content">
     <h2 set:html={home.cta.heading} />
-    <p>{home.cta.body}</p>
-    <a href="/contact" class="btn-primary">CONTACT US</a>
+    <p>{enrollmentCopy(home.cta.body)}</p>
+    <a href="/contact" class="btn-primary">
+      {enrollment.open ? "REGISTER NOW" : "CONTACT US"}
+    </a>
   </div>
 </section>
