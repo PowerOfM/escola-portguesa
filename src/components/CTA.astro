@@ -11,7 +11,9 @@ import { enrollment, enrollmentCopy } from "../utils/enrollment";
     <h2 set:html={home.cta.heading} />
     <p>{enrollmentCopy(home.cta.body)}</p>
     <a href="/contact" class="btn-primary">
-      {enrollment.open ? "REGISTER NOW" : "CONTACT US"}
+      {enrollment.status === "open" && "REGISTER NOW"}
+      {enrollment.status === "waitlist" && "JOIN WAITLIST"}
+      {enrollment.status === "closed" && "CONTACT US"}
     </a>
   </div>
 </section>

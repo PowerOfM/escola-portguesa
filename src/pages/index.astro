@@ -30,7 +30,9 @@ const curriculum = Object.entries(curriculumModules)
       </div>
       <div class="home-hero-cta">
         <a href="/contact" class="btn-primary">
-          {enrollment.open ? "REGISTER NOW" : "GET IN TOUCH"}
+          {enrollment.status === "open" && "REGISTER NOW"}
+          {enrollment.status === "waitlist" && "JOIN WAITLIST"}
+          {enrollment.status === "closed" && "GET IN TOUCH"}
         </a>
         <span class="home-hero-cta-tag">
           {enrollmentCopy(home.hero.enrollmentTag)}

@@ -5,6 +5,7 @@
     "badge": "Serving Vancouver for 50+ Years",
     "enrollmentTag": {
       "open": "Enrollment is open for the {currentYear} school year!",
+      "waitlist": "Enrollment is almost full for the {currentYear} school year!",
       "closed": "Enrollment is now closed. Contact us for the {nextYear} school year"
     }
   },
@@ -25,6 +26,7 @@
     "heading": "Vem Connosco!<br />Ready to Begin Your Journey?",
     "body": {
       "open": "Join our vibrant community and give your child the gift of language and culture. Enrollment is now open for the {currentYear} school year!",
+      "waitlist": "Join our vibrant community and give your child the gift of language and culture. Enrollment for the {currentYear} school year is almost full, but you can join our waitlist!",
       "closed": "Join our vibrant community and give your child the gift of language and culture. Enrollment for the {currentYear} school year is now closed. Please contact us to learn about the {nextYear} school year!"
     }
   }

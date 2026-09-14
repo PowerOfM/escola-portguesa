@@ -1,5 +1,5 @@
 {
-  "name": "Escola Portuguesa Nossa Senhora de Fátima",
+  "name": "Escola Portuguesa Nossa Senhora de F\u00e1tima",
   "shortName": "Escola Portuguesa Vancouver",
   "tagline": "Preserving Portuguese language and culture in Vancouver for over 50 years. We provide quality Portuguese education for children in the heart of Vancouver.",
   "founded": 1985,
@@ -19,11 +19,11 @@
   "schoolYear": {
     "start": "September 19, 2026",
     "end": "June 12, 2027",
-    "label": "2026–2027"
+    "label": "2026\u20132027"
   },
   "classDays": "Every Saturday (except holidays)",
   "enrollment": {
-    "open": false,
+    "status": "waitlist",
     "currentYear": "2026/27",
     "nextYear": "2027/28"
   }

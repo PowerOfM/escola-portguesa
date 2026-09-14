@@ -14,13 +14,23 @@
   gap: 24px;
 }
 
-.contact-card a {
+.contact-cards a {
   color: var(--primary);
   text-decoration: underline;
 }
 
-.contact-card a:hover {
+.contact-cards a:hover {
   color: #00a63e;
+}
+
+.contact-emails {
+  display: flex;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+.contact-email {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Form section */
@@ -36,6 +46,7 @@
 .contact-form-intro {
   color: var(--gray-400);
   margin-bottom: 32px;
+  max-width: 800px;
 }
 
 .contact-form {

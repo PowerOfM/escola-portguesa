@@ -438,14 +438,13 @@ footer {
   background-color: #eff0f0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 15px;
 }
 
 .info-card-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .info-card-header h3 {

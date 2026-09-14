@@ -3,9 +3,11 @@ import Layout from "../layouts/Layout.astro";
 import site from "../data/site.json";
 import { enrollment, enrollmentCopy } from "../utils/enrollment";
 
-const enrollmentOpen = enrollment.open;
+const isWaitlist = enrollment.status === "waitlist";
+const showRegistrationForm = enrollment.status !== "closed";
 const closedFormIntro = enrollmentCopy({
   open: "",
+  waitlist: "",
   closed:
     "Enrollment for the {currentYear} school year has now ended. Registration for the {nextYear} school year will open early next year. If you'd like to register your interest for next year, please send us a message below and we'll follow up once registration opens.",
 });
@@ -42,20 +44,19 @@ const closedFormIntro = enrollmentCopy({
             </div>
           </div>
           <p>
-            {site.address.name}
+            <strong>{site.address.name}</strong>
             <br />
             {site.address.street}
             <br />
             {site.address.city}, {site.address.province}
-            {site.address.postal}
             <br />
-            {site.address.country}
+            {site.address.postal}
           </p>
         </div>
 
         <div class="info-card">
           <div class="info-card-header">
-            <h3>Email</h3>
+            <h3>Emails</h3>
             <div class="info-card-icon info-card-icon--yellow">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -73,17 +74,24 @@ const closedFormIntro = enrollmentCopy({
               </svg>
             </div>
           </div>
-          <p>
-            <strong>General:</strong>
-            <a href={`mailto:${site.email.general}`}>{site.email.general}</a>
-            <br />
-            <strong>Admin:</strong>
-            <a href={`mailto:${site.email.admin}`}>{site.email.admin}</a>
-            <br />
-            <strong>Payments:</strong>
-            <a href={`mailto:${site.email.payments}`}>{site.email.payments}</a>
-            <br />
-          </p>
+          <div class="contact-emails">
+            <div class="contact-email">
+              <strong>General Inquiries</strong>
+              <a href={`mailto:${site.email.general}`}>{site.email.general}</a>
+            </div>
+
+            <div class="contact-email">
+              <strong>Administration</strong>
+              <a href={`mailto:${site.email.admin}`}>{site.email.admin}</a>
+            </div>
+
+            <div class="contact-email">
+              <strong>E-Transfer Payments</strong>
+              <a href={`mailto:${site.email.payments}`}>
+                {site.email.payments}
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -91,12 +99,21 @@ const closedFormIntro = enrollmentCopy({
 
   <section class="contact-form-section section-tinted">
     <div class="container">
-      {enrollmentOpen && (
+      {showRegistrationForm && (
         <Fragment>
           <h2>Enrollment Inquiry Form</h2>
           <p class="contact-form-intro">
             Fill out this form to start the enrollment process or ask questions
             about our programs.
+            {isWaitlist && (
+              <Fragment>
+                <br />
+                <br />
+                Please note that we are reaching capacity for the current school
+                year, but you can still join our waitlist below. We'll reach out
+                to confirm if a spot becomes available.
+              </Fragment>
+            )}
           </p>
 
           <form
@@ -107,7 +124,11 @@ const closedFormIntro = enrollmentCopy({
             <input
               type="hidden"
               name="_subject"
-              value="Website Enrollment Inquiry"
+              value={
+                isWaitlist
+                  ? "Website Waitlist Inquiry"
+                  : "Website Enrollment Inquiry"
+              }
             />
             <div class="contact-form-group">
               <label class="contact-form-label">Enrollment Type</label>
@@ -218,14 +239,14 @@ const closedFormIntro = enrollmentCopy({
 
             <div class="contact-form-actions">
               <button type="submit" class="btn-primary">
-                Submit Enrollment Inquiry
+                {isWaitlist ? "Join Waitlist" : "Submit Enrollment Inquiry"}
               </button>
               <p class="contact-form-note">* Required fields.</p>
             </div>
           </form>
         </Fragment>
       )}
-      {!enrollmentOpen && (
+      {!showRegistrationForm && (
         <Fragment>
           <h2>Contact Us</h2>
           <p class="contact-form-intro">{closedFormIntro}</p>
