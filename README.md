@@ -188,7 +188,7 @@ Images were extracted from Figma and saved to `public/assets/images/`.
 
 1. **Hero section**: Background image with `linear-gradient(180deg, transparent 53%, black 100%)` overlay via `::after` pseudo-element. Content positioned at bottom with `align-items: flex-end`.
 
-2. **Hero CTA**: The "Enrolment open..." tag sits *under* the button with a white background pill that visually extends from the button. Achieved with `flex-direction: column`, negative `margin-top`, and `z-index: -1` on the tag.
+2. **Hero CTA**: The "Enrollment open..." tag sits *under* the button with a white background pill that visually extends from the button. Achieved with `flex-direction: column`, negative `margin-top`, and `z-index: -1` on the tag.
 
 3. **Curriculum pills**: 6 pills in a grid, each with incrementing white opacity backgrounds (`0.4` → `0.9`). First pill has a special red-tinted text color (`#fef2f2`).
 
