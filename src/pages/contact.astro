@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import site from "../data/site.json";
+
+const enrollmentOpen = false;
 ---
 
 <Layout
@@ -27,16 +29,20 @@ import site from "../data/site.json";
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                ><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                ></path><circle cx="12" cy="10" r="3"></circle></svg
               >
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
             </div>
           </div>
           <p>
-            {site.address.name}<br />
-            {site.address.street}<br />
+            {site.address.name}
+            <br />
+            {site.address.street}
+            <br />
             {site.address.city}, {site.address.province}
-            {site.address.postal}<br />
+            {site.address.postal}
+            <br />
             {site.address.country}
           </p>
         </div>
@@ -55,20 +61,22 @@ import site from "../data/site.json";
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
-                  d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
               >
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
             </div>
           </div>
           <p>
             <strong>General:</strong>
-            <a href={`mailto:${site.email.general}`}>{site.email.general}</a><br
-            />
+            <a href={`mailto:${site.email.general}`}>{site.email.general}</a>
+            <br />
             <strong>Admin:</strong>
-            <a href={`mailto:${site.email.admin}`}>{site.email.admin}</a><br />
+            <a href={`mailto:${site.email.admin}`}>{site.email.admin}</a>
+            <br />
             <strong>Payments:</strong>
-            <a href={`mailto:${site.email.payments}`}>{site.email.payments}</a
-            ><br />
+            <a href={`mailto:${site.email.payments}`}>{site.email.payments}</a>
+            <br />
           </p>
         </div>
       </div>
@@ -77,126 +85,211 @@ import site from "../data/site.json";
 
   <section class="contact-form-section section-tinted">
     <div class="container">
-      <h2>Enrollment Inquiry Form</h2>
-      <p class="contact-form-intro">
-        Fill out this form to start the enrollment process or ask questions
-        about our programs.
-      </p>
+      {enrollmentOpen && (
+        <Fragment>
+          <h2>Enrollment Inquiry Form</h2>
+          <p class="contact-form-intro">
+            Fill out this form to start the enrollment process or ask questions
+            about our programs.
+          </p>
 
-      <form
-        class="contact-form"
-        action={"https://formsubmit.co/" + site.email.general}
-        method="post"
-      >
-        <input
-          type="hidden"
-          name="_subject"
-          value="Website Enrollment Inquiry"
-        />
-        <div class="contact-form-group">
-          <label class="contact-form-label">Enrollment Type</label>
-          <div class="contact-form-radio-group">
-            <label class="contact-form-radio">
-              <input type="radio" name="enrollment-type" value="new" checked />
-              <span>New Student</span>
-            </label>
-            <label class="contact-form-radio">
-              <input type="radio" name="enrollment-type" value="returning" />
-              <span>Returning Student</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="contact-form-row">
-          <div class="contact-form-group">
-            <label for="parent-name" class="contact-form-label"
-              >Parent/Guardian Name *</label
-            >
-            <input
-              type="text"
-              id="parent-name"
-              name="parent-name"
-              placeholder="Your full name"
-              required
-            />
-          </div>
-          <div class="contact-form-group">
-            <label for="email" class="contact-form-label">Email Address *</label
-            >
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="your.email@example.com"
-              required
-            />
-          </div>
-        </div>
-
-        <fieldset class="contact-form-fieldset">
-          <legend>Student Information</legend>
-          <div class="contact-form-row">
-            <div class="contact-form-group">
-              <label for="child-name" class="contact-form-label"
-                >Child's Name</label
-              >
-              <input
-                type="text"
-                id="child-name"
-                name="child-name"
-                placeholder="Child's full name"
-              />
-            </div>
-            <div class="contact-form-group">
-              <label for="child-age" class="contact-form-label"
-                >Child's Age</label
-              >
-              <input
-                type="number"
-                id="child-age"
-                name="child-age"
-                placeholder="Age"
-              />
-            </div>
-          </div>
-          <div class="contact-form-group">
-            <label for="grade-level" class="contact-form-label"
-              >Desired Grade Level</label
-            >
-            <input
-              type="text"
-              id="grade-level"
-              name="grade-level"
-              placeholder="Please enter the desired grade or comprehension level"
-            />
-          </div>
-        </fieldset>
-
-        <div class="contact-form-group">
-          <label for="message" class="contact-form-label"
-            >Questions or Comments</label
+          <form
+            class="contact-form"
+            action={"https://formsubmit.co/" + site.email.general}
+            method="post"
           >
-          <textarea
-            id="message"
-            name="message"
-            rows={5}
-            placeholder="Tell us about your child's Portuguese language experience, any questions you have, or special considerations..."
-          ></textarea>
-        </div>
+            <input
+              type="hidden"
+              name="_subject"
+              value="Website Enrollment Inquiry"
+            />
+            <div class="contact-form-group">
+              <label class="contact-form-label">Enrollment Type</label>
+              <div class="contact-form-radio-group">
+                <label class="contact-form-radio">
+                  <input
+                    type="radio"
+                    name="enrollment-type"
+                    value="new"
+                    checked
+                  />
+                  <span>New Student</span>
+                </label>
+                <label class="contact-form-radio">
+                  <input
+                    type="radio"
+                    name="enrollment-type"
+                    value="returning"
+                  />
+                  <span>Returning Student</span>
+                </label>
+              </div>
+            </div>
 
-        <input
-          type="hidden"
-          name="_next"
-          value="https://escolaportuguesavancouver.ca/contact-thanks"
-        />
+            <div class="contact-form-row">
+              <div class="contact-form-group">
+                <label for="parent-name" class="contact-form-label">
+                  Parent/Guardian Name *
+                </label>
+                <input
+                  type="text"
+                  id="parent-name"
+                  name="parent-name"
+                  placeholder="Your full name"
+                  required
+                />
+              </div>
+              <div class="contact-form-group">
+                <label for="email" class="contact-form-label">
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="your.email@example.com"
+                  required
+                />
+              </div>
+            </div>
 
-        <div class="contact-form-actions">
-          <button type="submit" class="btn-primary"
-            >Submit Enrollment Inquiry</button
+            <fieldset class="contact-form-fieldset">
+              <legend>Student Information</legend>
+              <div class="contact-form-row">
+                <div class="contact-form-group">
+                  <label for="child-name" class="contact-form-label">
+                    Child's Name
+                  </label>
+                  <input
+                    type="text"
+                    id="child-name"
+                    name="child-name"
+                    placeholder="Child's full name"
+                  />
+                </div>
+                <div class="contact-form-group">
+                  <label for="child-age" class="contact-form-label">
+                    Child's Age
+                  </label>
+                  <input
+                    type="number"
+                    id="child-age"
+                    name="child-age"
+                    placeholder="Age"
+                  />
+                </div>
+              </div>
+              <div class="contact-form-group">
+                <label for="grade-level" class="contact-form-label">
+                  Desired Grade Level
+                </label>
+                <input
+                  type="text"
+                  id="grade-level"
+                  name="grade-level"
+                  placeholder="Please enter the desired grade or comprehension level"
+                />
+              </div>
+            </fieldset>
+
+            <div class="contact-form-group">
+              <label for="message" class="contact-form-label">
+                Questions or Comments
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows={5}
+                placeholder="Tell us about your child's Portuguese language experience, any questions you have, or special considerations..."
+              ></textarea>
+            </div>
+
+            <input
+              type="hidden"
+              name="_next"
+              value="https://escolaportuguesavancouver.ca/contact-thanks"
+            />
+
+            <div class="contact-form-actions">
+              <button type="submit" class="btn-primary">
+                Submit Enrollment Inquiry
+              </button>
+              <p class="contact-form-note">* Required fields.</p>
+            </div>
+          </form>
+        </Fragment>
+      )}
+      {!enrollmentOpen && (
+        <Fragment>
+          <h2>Contact Us</h2>
+          <p class="contact-form-intro">
+            Enrollment for the 2026/27 school year has now ended. Registration
+            for the 2027/28 school year will open early next year. If you'd like
+            to register your interest for next year, please send us a message
+            below and we'll follow up once registration opens.
+          </p>
+
+          <form
+            class="contact-form"
+            action={"https://formsubmit.co/" + site.email.general}
+            method="post"
           >
-          <p class="contact-form-note">* Required fields.</p>
-        </div>
-      </form>
+            <input type="hidden" name="_subject" value="Website Contact" />
+
+            <div class="contact-form-row">
+              <div class="contact-form-group">
+                <label for="name" class="contact-form-label">
+                  Name *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your full name"
+                  required
+                />
+              </div>
+              <div class="contact-form-group">
+                <label for="email" class="contact-form-label">
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="your.email@example.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="contact-form-group">
+              <label for="message" class="contact-form-label">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows={5}
+                placeholder="Let us know you're interested in registering for the 2027/28 school year, or ask us any questions..."
+              ></textarea>
+            </div>
+
+            <input
+              type="hidden"
+              name="_next"
+              value="https://escolaportuguesavancouver.ca/contact-thanks"
+            />
+
+            <div class="contact-form-actions">
+              <button type="submit" class="btn-primary">
+                Send Message
+              </button>
+              <p class="contact-form-note">* Required fields.</p>
+            </div>
+          </form>
+        </Fragment>
+      )}
     </div>
   </section>
 </Layout>

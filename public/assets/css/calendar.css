@@ -63,6 +63,10 @@
   background-color: #fff5f5;
 }
 
+.calendar-item--highlight {
+  background-color: #f0fdf4;
+}
+
 .calendar-item-date {
   display: flex;
   align-items: center;
@@ -88,6 +92,15 @@
 
 .calendar-item--no-school .calendar-item-day {
   color: #b91c1c;
+}
+
+.calendar-item--highlight .calendar-item-date {
+  background-color: rgba(0, 166, 62, 0.08);
+  border-right-color: rgba(0, 166, 62, 0.15);
+}
+
+.calendar-item--highlight .calendar-item-day {
+  color: #00a63e;
 }
 
 .calendar-item-content {

@@ -28,7 +28,9 @@ const curriculum = Object.entries(curriculumModules)
         </div>
       </div>
       <div class="home-hero-cta">
-        <a href="/contact" class="btn-primary">REGISTER NOW</a>
+        <a href="/contact" class="btn-primary">
+          GET IN TOUCH
+        </a>
         <span class="home-hero-cta-tag">{home.hero.enrolmentTag}</span>
       </div>
     </div>
@@ -43,7 +45,9 @@ const curriculum = Object.entries(curriculumModules)
         <h2>{home.school.heading}</h2>
         <p class="lead">{home.school.lead}</p>
         <p>{home.school.body}</p>
-        <a href="/about" class="btn-outline">LEARN MORE</a>
+        <a href="/about" class="btn-outline">
+          LEARN MORE
+        </a>
       </div>
     </div>
   </section>
@@ -53,16 +57,11 @@ const curriculum = Object.entries(curriculumModules)
       <h2>{home.curriculumSection.heading}</h2>
       <p class="home-curriculum-intro">{home.curriculumSection.intro}</p>
       <div class="home-curriculum-pills">
-        {
-          curriculum.map((level, index) => (
-            <a
-              href={`/children#${level.slug}`}
-              class={`pill pill-${index + 1}`}
-            >
-              {level.title}
-            </a>
-          ))
-        }
+        {curriculum.map((level, index) => (
+          <a href={`/children#${level.slug}`} class={`pill pill-${index + 1}`}>
+            {level.title}
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -72,7 +71,9 @@ const curriculum = Object.entries(curriculumModules)
       <div class="home-teachers-content">
         <h2 set:html={home.teachersSection.heading} />
         <p>{home.teachersSection.body}</p>
-        <a href="/about#our-teachers" class="btn-outline">MEET THE TEACHERS</a>
+        <a href="/about#our-teachers" class="btn-outline">
+          MEET THE TEACHERS
+        </a>
       </div>
       <div class="home-teachers-image">
         <img src="/assets/images/our-teachers.jpeg" alt="Our Teachers" />

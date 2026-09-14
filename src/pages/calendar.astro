@@ -21,7 +21,7 @@ const MONTHS = [
 // Group saturdays by month, preserving order
 const grouped: {
   label: string;
-  items: { day: number; school: boolean; note?: string }[];
+  items: { day: number; school: boolean; note?: string; highlight: boolean }[];
 }[] = [];
 for (const s of saturdays) {
   const d = new Date(s.date + "T12:00:00");
@@ -35,6 +35,7 @@ for (const s of saturdays) {
     day: d.getDate(),
     school: s.school,
     note: (s as any).note,
+    highlight: (s as any).highlight ?? false,
   });
 }
 ---
@@ -62,17 +63,17 @@ for (const s of saturdays) {
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                ><rect width="18" height="18" x="3" y="4" rx="2" ry="2"
-                ></rect><line x1="16" x2="16" y1="2" y2="6"></line><line
-                  x1="8"
-                  x2="8"
-                  y1="2"
-                  y2="6"></line><line x1="3" x2="21" y1="10" y2="10"
-                ></line></svg
               >
+                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                <line x1="16" x2="16" y1="2" y2="6"></line>
+                <line x1="8" x2="8" y1="2" y2="6"></line>
+                <line x1="3" x2="21" y1="10" y2="10"></line>
+              </svg>
             </div>
           </div>
-          <p>{site.schoolYear.start} &ndash; {site.schoolYear.end}</p>
+          <p>
+            {site.schoolYear.start} &ndash; {site.schoolYear.end}
+          </p>
         </div>
         <div class="info-card">
           <div class="info-card-header">
@@ -88,9 +89,10 @@ for (const s of saturdays) {
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                ><circle cx="12" cy="12" r="10"></circle><polyline
-                  points="12 6 12 12 16 14"></polyline></svg
               >
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
             </div>
           </div>
           <p>{site.classDays}</p>
@@ -109,9 +111,10 @@ for (const s of saturdays) {
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                ><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                ></path><circle cx="12" cy="10" r="3"></circle></svg
               >
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
             </div>
           </div>
           <p>
@@ -124,40 +127,38 @@ for (const s of saturdays) {
 
   <section class="calendar-dates">
     <div class="container">
-      <h2>Horário / Schedule</h2>
+      <h2>Horário das Aulas Infantis / Children's Class Schedule</h2>
 
       <div class="calendar-schedule">
-        {
-          grouped.map((group) => (
-            <div class="calendar-month-group">
-              <h3 class="calendar-month-header">{group.label}</h3>
-              <div class="calendar-list">
-                {group.items.map((item) => (
-                  <div
-                    class={`calendar-item${item.school ? "" : " calendar-item--no-school"}`}
-                  >
-                    <div class="calendar-item-date">
-                      <span class="calendar-item-day">{item.day}</span>
-                    </div>
-                    <div class="calendar-item-content">
-                      {item.school ? (
-                        item.note ? (
-                          <span class="calendar-item-note">{item.note}</span>
-                        ) : (
-                          <span class="calendar-item-regular">Class</span>
-                        )
-                      ) : (
-                        <span class="calendar-item-no-school">
-                          No school{item.note ? ` — ${item.note}` : ""}
-                        </span>
-                      )}
-                    </div>
+        {grouped.map((group) => (
+          <div class="calendar-month-group">
+            <h3 class="calendar-month-header">{group.label}</h3>
+            <div class="calendar-list">
+              {group.items.map((item) => (
+                <div
+                  class={`calendar-item${item.school ? "" : " calendar-item--no-school"}${item.highlight ? " calendar-item--highlight" : ""}`}
+                >
+                  <div class="calendar-item-date">
+                    <span class="calendar-item-day">{item.day}</span>
                   </div>
-                ))}
-              </div>
+                  <div class="calendar-item-content">
+                    {item.school ? (
+                      item.note ? (
+                        <span class="calendar-item-note">{item.note}</span>
+                      ) : (
+                        <span class="calendar-item-regular">Class</span>
+                      )
+                    ) : (
+                      <span class="calendar-item-no-school">
+                        No school{item.note ? ` — ${item.note}` : ""}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
-          ))
-        }
+          </div>
+        ))}
       </div>
     </div>
   </section>
